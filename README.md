@@ -1,4 +1,4 @@
-# hopeact WordPress Theme by fjorge digital
+# hopeact WordPress Theme by Banshee Studio
 
 For info on the site theme, see the [Theme README](wordpress/wp-content/themes/hopeact/README.md).
 
@@ -7,15 +7,10 @@ For info on using the Terraform templates, see the [Terraform README](terraform/
 ## General Information
 
 - Production Url:
-- Platform/CMS: WordPress: LOCAL LINK
-- Code stored on github: GITHUB LINK
+- Platform/CMS: WordPress: [LOCAL LINK](hopeact.lndo)
+- Code stored on github: [GITHUB LINK](https://github.com/kendrak922/hopeact)
 - figma Designs:
 
-## Admin Login Info
-
-Initial Devleopment by:
-
-- **Sarah Berg**
 
 ## Getting Started
 
@@ -36,6 +31,11 @@ Initial Devleopment by:
   - lando wp core download --skip-content
 
 ### Theme Setup
-
+- import ACF fields
 - add colors to admin-styles.css, variables, dev guide, and style guide.
 - convert fonts: https://transfonter.org/, add font faces, assign primary and secondary fonts
+- Check global elements like buttons
+
+
+### Plugins
+- ACF

@@ -1,9 +1,6 @@
-# WORDPRESS STARTER THEME - Gulp version
+# WORDPRESS STARTER THEME - 
 
-This theme starter provides a basic file structure for a custom WordPress theme. For further documentation about this Starter Theme, please reference [the Ljibrary.](https://the-ljibrary.fjorgedigital.com/books/cms-wordpress/chapter/wordpress-starter-theme)
-
-&nbsp;
-
+This theme is the result of all of the mentors, youtube videos, and paired programs I have worked with through the years. 
 ---
 
 ## Overview of Directories and Files

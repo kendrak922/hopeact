@@ -1,0 +1,41 @@
+/* ---------------------------------------------------------------------
+ Landmark: Colophon
+------------------------------------------------------------------------ */
+.colophon {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.colophon__section__links > ul {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.colophon__section__links > ul > li + li::before {
+    content: " ";
+    border-left: 1px solid;
+    padding-right: 10px;
+}
+
+.colophon__section__links a {
+    text-decoration: underline;
+}
+
+@media (min-width: 960px) {
+    .colophon {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+        padding: 30px 0;
+    }
+
+    .colophon__section__links > ul {
+        justify-content: flex-start;
+    }
+}

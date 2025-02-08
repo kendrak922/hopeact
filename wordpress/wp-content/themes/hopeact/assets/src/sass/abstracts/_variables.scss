@@ -1,0 +1,228 @@
+// ! Contains all site variables
+
+// ! NOTE: all variables are required, if some are missing set it equal to a similar var. Do that here, NOT in utilities/*
+
+//////////////////
+/// * LAYOUT * ///
+//////////////////
+// Header: sm-88  md-88
+$headerHeight: (
+  'sm': 4.5rem,
+  //72
+  'lg': 8.5rem,
+  //136
+  'scroll': 4.5rem,
+  //72
+);
+$adminHeight: (
+  'sm': 2.875rem,
+  //46
+  'lg': 2rem,
+  //32
+);
+
+// Grid elements
+$grid-unit: 0.25rem;
+$grid-columns: 12;
+
+// Grid gutters
+$grid-gutter: 2rem; //32
+$grid-gutter-narrow: 1rem; //16
+$grid-gutter-wide: 2.5rem; //40
+$grid-gutter-ultra-wide: 3.75rem; //60
+$grid-gutter-props: (
+  'gutters': $grid-gutter,
+  'gutters-narrow': $grid-gutter-narrow,
+  'gutters-wide': $grid-gutter-wide,
+  'gutters-ultra-wide': $grid-gutter-ultra-wide,
+);
+
+// Container elements
+
+$container-width: 55.5rem; // 744 = 46.5rem + 9rem (media)
+$container-width-wide: 84rem; // 1200px = 75rem + 9rem (non sidebar, programs)
+$container-ultra-wide: 99rem; // 1440px = 75rem + 9rem (non sidebar)
+$container-width-narrow: 49.5rem; // 648 = 40.5rem + 9rem (most content)
+$container-width-ultra-narrow: 45rem; // 576 = 36rem + 9rem
+//840
+
+$container-width-wide-content: 61.5rem; // 840 = 52.5rem + 9rem (cta)
+$container-width-wide-media : 73.5rem; //1032 = 64.5rem + 9
+
+$container-padding: 4.5rem; //72
+$container-padding-tablet: 2rem; //32
+$container-padding-mobile: 1.5rem; //24
+
+// Breakpoints
+$xs-width: 20rem; //320px;
+$sm-width: 31.25rem; //500px;
+$md-width: 48rem; //768px;
+$lg-width: 64rem; //1024px;
+$xl-width: 87.5rem; //1400px;
+$xxl-width: 117.25rem; //1876px;
+$admin-width: 48.875rem; //782;
+
+$map-width-props: (
+  '': 0,
+  '-xs': $xs-width,
+  '-sm': $sm-width,
+  '-md': $md-width,
+  '-lg': $lg-width,
+  '-xl': $xl-width,
+);
+
+//////////////////
+/// * COLORS * ///
+//////////////////
+
+$color-primary: #0968FA;
+$color-secondary: #FBDC43;
+$color-tertiary: #FE9CD9;
+
+// Basics
+$color-black: #000000;
+$color-white: #FFF5F5;
+
+$palette: (
+'Primary': $color-primary,
+  'PrimaryHover': #0F50B4,
+  'PrimaryActive':#093F92,
+  'Secondary': $color-secondary,
+  'SecondaryHover':#EBCC32,
+  'SecondaryActive':#D9BA1E,
+  'Tertiary': $color-tertiary,
+  // Text color
+  'Neutral': $color-black,
+  // Style Guide
+  'Blue': #0968FA,
+  'Orange': #DE541E,
+  'Yellow': #FBDC43,
+  'Green': #44AF69,
+  'Pink': #FE9CD9,
+  'Gray' : gray,
+  'Black': $color-black,
+  'White': $color-white,
+  'Success': #04865d,
+  'Error': #bd0934,
+);
+
+
+
+/////////////////
+/// * FONTS * ///
+/////////////////
+
+// Weights
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-book: 350;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-heavy: 900;
+
+// Font Stack
+$font-stack-primary: (
+  'Hepta Slab',
+  'Helvetica',
+  serif
+);
+$font-stack-secondary: (
+  'Outfit',
+  sans-serif
+);
+
+$font-stack-tertiary: $font-stack-primary;
+
+$font-awesome: (
+  'Font Awesome 5 Pro',
+  sans-serif
+);
+$font-awesome-brands: (
+  'Font Awesome 5 Brands',
+  sans-serif
+);
+
+// Font Base sizes Sizes
+$font-base: 1rem; // mobile
+$font-base-md: 1.3125rem; // md breakpoint and up. If not changning, set = $font-base
+
+// Font Face Declarations (if applicable)
+
+// Font scale factor, for more visit https://type-scale.com
+// Note: these are simply baked in options, set $type-scale = to the desired ratio - Major Third and Perfect Forth are most common
+$minor-second: 1.067;
+$major-second: 1.125;
+$minor-third: 1.2;
+$major-third: 1.25;
+$perfect-forth: 1.333;
+$augmented-forth: 1.414;
+$perfect-fifth: 1.5;
+$golden-ratio: 1.618;
+
+$type-scale: $major-second;
+$type-scale-reverse: (
+  2 - $type-scale) * 1.05;
+
+///////////////////////
+/// * TRANSITIONS * ///
+///////////////////////
+$t-short: 0.1s;
+$t-med: 0.3s;
+$t-long: 0.6s;
+$t-max: 1s;
+
+$t-default: $t-med;
+
+$transition-default: all ease-in-out $t-default;
+
+//********************************
+//	Z-INDEX
+//********************************
+$z-below: -1;
+$z-default: 1;
+
+$z-low: 10;
+$z-med: 20;
+$z-high: 30;
+$z-overlay: 100;
+$z-max: 1000;
+$z-maxest: 1001;
+
+///////////////////////
+/// * MISC * ///
+///////////////////////
+
+/*** MEDIA ***/
+$video_aspectRatio: 56.25%;
+
+$wp-adminBar-height: 32px;
+$wp-adminBar-height-mobile: 46px;
+
+///////////////////////
+/// * BLOCKS * ///
+///////////////////////
+$block-padding: 4.5rem; // 72
+$block-padding-lg: 7.5rem; // 120
+$block-padding-mobile: 3rem; // 48
+
+///////////////////////
+/// * DOMAINS * ///
+///////////////////////
+
+$domain: (
+  'local': 'hopeact.lndo.site',
+  'develop': 'hopeact.arts.gov.dev.l05.project-qa.com',
+  'staging': 'hopeact5.project-qa.com',
+  'maint': 'hopeact.arts.gov.cmr.m01.project-qa.com',
+  'production': 'hopeact.arts.gov',
+);
+
+//********************************
+//	ADA OUTLINE
+//********************************
+$outline-size: max(2px, 1.25px);
+$outline-style: solid;
+$outline-color: currentColor;

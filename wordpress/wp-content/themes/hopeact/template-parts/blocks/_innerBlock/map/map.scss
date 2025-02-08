@@ -1,0 +1,23 @@
+@use '../../../assets/src/sass/abstracts' as *;
+@use '../../../assets/src/sass/base/fonts' as font;
+
+/******************************
+    BLOCK: Location List
+******************************/
+.inner-block--map {
+
+    .map__header{
+        margin-bottom: 3rem;
+        gap: 2rem;
+    }
+    .map__content{
+        max-width: 28.5rem;
+    }
+    .map__map{
+        margin-bottom: 3rem;
+        @include create-mq($md-width) {
+            margin-bottom: 4.5rem;
+        }
+    }
+
+} // close: .block--location-list

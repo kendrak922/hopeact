@@ -1,0 +1,48 @@
+@use '../../../assets/src/sass/abstracts' as *;
+@use '../../../assets/src/sass/base/fonts' as font;
+
+.team-listing{
+    &:not(:first-child){
+        margin-top: 3rem; //48
+    }
+
+    .team-listing__grid{
+        display: grid;
+        gap:0;
+        grid-template-columns: 1fr;
+        @include create-mq($md-width) {
+            gap:3.5rem; //56
+            row-gap: 3rem; //48
+            grid-template-columns: 1fr 1fr;
+            padding:0;
+        }
+        @include create-mq($lg-width) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @include create-mq($xl-width) {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .team-item{
+            padding:1.5rem 0;
+            border-bottom: .5px swatch("Neutral") solid;
+            &:first-child{
+                padding-top: 0;
+            }
+            &:last-child{
+                padding-bottom: 0;
+                border: none;
+            }
+            @include create-mq($md-width) {
+                padding:0;
+                border: none;
+            }
+            
+            .inner-block--divider{
+                span{
+                    max-width: 3rem; //48
+                }
+            }
+        }
+    }
+}

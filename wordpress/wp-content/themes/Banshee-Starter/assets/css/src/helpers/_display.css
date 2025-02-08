@@ -1,0 +1,18 @@
+/* ---------------------------------------------------------------------
+ Helper: Display
+------------------------------------------------------------------------ */
+.isHidden {
+    display: none;
+}
+
+.isBlock {
+    display: block;
+}
+
+.isInline {
+    display: inline;
+}
+
+.isInlineBlock {
+    display: inline-block;
+}

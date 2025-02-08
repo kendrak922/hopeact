@@ -1,0 +1,149 @@
+/*************************************************************
+   * WP ADMIN
+*************************************************************/
+/* DEFINE CSS3 VARS */
+:root {
+  --admin_sidebarWidth: 27%;
+  --admin_sidebarWidth_min: 400px;
+}
+
+/***** GLOBAL ADMIN *****/
+.wp-admin ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wp-admin ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.wp-block-freeform {
+  padding: 10px 20px;
+}
+
+/***** TABLET AND UP *****/
+@media screen and (min-width: 782px) {
+  /* GUTENBERG EDITOR */
+  .wp-admin .edit-post-layout .interface-interface-skeleton__body {
+    padding-bottom: 30px;
+  }
+  .wp-admin .edit-post-layout .wp-block {
+    max-width: 100%;
+  }
+  .wp-admin .edit-post-layout .block-editor-block-list__layout .wp-block {
+    border: solid 1px #ccc;
+  }
+  .wp-admin .edit-post-layout .wp-block + .wp-block {
+    margin-top: 10px;
+  }
+
+  /* GUTENBERG SIDEBAR */
+  .wp-admin
+    .edit-post-layout.is-sidebar-opened
+    .block-editor-editor-skeleton__sidebar,
+  .wp-admin
+    .edit-post-layout.is-sidebar-opened
+    .interface-interface-skeleton__sidebar {
+    width: var(--admin_sidebarWidth);
+    min-width: var(--admin_sidebarWidth_min);
+  }
+  .wp-admin .edit-post-layout.is-sidebar-opened .edit-post-sidebar {
+    width: 100%;
+  }
+} /* end: tablet^ styles */
+
+/* ---------------------------------------------------------------------
+ Admin CSS - Injected into the WordPress Dashboard
+------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------
+ Hide customize button on Theme selection pages
+------------------------------------------------------------------------ */
+/*  */
+.theme-actions .button.customize {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------------------
+Add interface colored swatches to ACF picker
+------------------------------------------------------------------------ */
+.acf-radio-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+}
+
+.acf-radio-list::before,
+.acf-radio-list::after {
+  display: none;
+}
+
+.acf-radio-list input[type=radio] {
+  margin-right: 10px;
+}
+
+.acf-radio-list > li > label {
+  display: inline-block;
+  border: 1px solid transparent;
+  padding: 5px 16px;
+  border-radius: 22px;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=default]),
+.acf-radio-list > li > label:has(input[type=radio][value=txtColor]),
+.acf-radio-list > li > label:has(input[type=radio][value=hdgColor]) {
+  background-color: #f1f1f1;
+  border-color: #ccc;
+  border-style: dotted;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=transparent]) {
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=white]) {
+  background-color: #FFF5F5;
+  border-color: #ccc;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=pink]) {
+  background-color: #FE9CD9;
+  border-color: #FE9CD9;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=orange]) {
+  background-color: #DE541E;
+  border-color: #DE541E;
+  color: #fff;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=blue]) {
+  background-color: #0968FA;
+  border-color: #0968FA;
+  color: #fff;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=green]) {
+  background-color: #44AF69;
+  border-color: #44AF69;
+  color: #fff;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=yellow]) {
+  background-color: #FBDC43;
+  border-color: #FBDC43;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=gray]) {
+  background-color: gray;
+  border-color: gray;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=black]) {
+  background-color: #000000;
+  border-color: #000;
+  color: #fff;
+}
+

@@ -1,0 +1,123 @@
+@use '../abstracts' as *;
+@use '../base/fonts' as font;
+
+@use "sass:map";
+@use "sass:meta";
+
+
+
+.social{
+    &__head{
+        margin-bottom: 1.5rem;
+        line-height: 1;
+    }
+    &__links{
+        align-items: center;
+        display: flex;
+        gap: 1.5rem;
+        list-style: none;
+        margin:1.5rem 0 0;
+        padding:0;
+        @include create-mq($sm-width) {
+            gap: 2rem;
+        }
+        li{
+            margin:0;
+            padding:0;
+            svg{
+                display: block;
+            }
+            .icon__new-tab{
+                display: none;
+            }
+        }
+    }
+}
+
+// /********************************
+// 	FOOTER
+// ********************************/
+.footer {
+    font-family: $font-stack-primary;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.2em;
+    padding: 1.25rem 0 1.5rem;
+    @include create-mq($md-width) {
+        padding: 3rem 0;
+    }
+    @include create-mq($lg-width) {
+        padding: 4.125rem 0; //72 4.5
+    }
+
+    //
+    // * Logo
+    //
+    &__logo {
+        display: block;
+        width: 270px;
+    }
+    //
+    // * Main - menu and logo
+    //
+    &__content {
+        position: relative;
+        .nav--utility-footer{
+            border-bottom: swatch("Gray") solid 1px;
+            border-top: swatch("Gray") solid 1px;
+            padding: 1.5rem 0;
+        }
+    }
+    // * Bottom - social/text
+    &__bottom {
+        padding-top: 2.5rem;
+        @include font.smallNavLines();
+        .footer__content{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            @include create-mq($md-width) {
+                flex-direction: row;
+            }
+        }
+        .footer__description{
+            max-width: 22rem;
+            padding-bottom: 2.5rem;
+            @include create-mq($md-width) {
+                padding: unset;
+            }
+        }
+        .footer__social{
+            border-top: swatch("Gray") solid 1px;
+            padding-top: 2.5rem;
+            @include create-mq($md-width) {
+                border: none;
+                padding: unset;
+            }
+            li:hover{
+                svg{
+                    path{
+                        fill: swatch("Blue")
+                    }
+                }
+            }
+        }
+    }
+
+    //
+    // * Menu
+    //
+    &__nav--wrapper {
+        @include create-mq($md-width) {
+            gap: rem(6);
+            justify-content: flex-start;
+            margin-left: auto;
+        }
+
+        .nav--footer {
+            a {
+                width: max-content;
+            }
+        }
+    }
+} // close: footer.footer

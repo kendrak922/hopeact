@@ -1,0 +1,21 @@
+/* ---------------------------------------------------------------------
+ Component: Skip Nav
+------------------------------------------------------------------------ */
+.skipNav a {
+    position: fixed;
+    left: 20px;
+    top: -100px;
+    z-index: 999999999999; /* over everything including the masthead */
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 40px;
+    background-color: var(--color-brand-beige);
+    color: var(--color-brand-blue);
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: var(--trans-all-quick);
+}
+
+.skipNav a:focus {
+    top: 20px;
+}

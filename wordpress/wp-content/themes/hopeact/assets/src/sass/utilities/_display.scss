@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+
+/**
+ * _display.scss
+ * Custom display properties
+ */
+
+.u-disabled {
+  opacity: 0.5;
+}
+.u-invisible {
+  visibility: hidden;
+}
+.u-transparent {
+  opacity: 0;
+}
+
+.u-overflow {
+  overflow: auto;
+}
+.u-overflowX {
+  overflow-x: auto;
+}
+.u-overflowY {
+  overflow-y: auto;
+}
+
+.u-overflowHidden {
+  overflow: hidden;
+}
+.u-overflowXHidden {
+  overflow-x: hidden;
+}
+.u-overflowYHidden {
+  overflow-y: hidden;
+}
+
+/* width targeting */
+
+@mixin create-display-classes($modifier, $breakpoint) {
+  @include create-mq($breakpoint) {
+    &#{$modifier}-hidden {
+      display: none;
+    }
+    &#{$modifier}-block {
+      display: block;
+    }
+    &#{$modifier}-inlineBlock {
+      display: inline-block;
+    }
+    &#{$modifier}-inline {
+      display: inline;
+    }
+    &#{$modifier}-flex {
+      display: flex;
+    }
+    &#{$modifier}-no-shrink {
+      flex-shrink: 0;
+    }
+    &#{$modifier}-no-shrink {
+      flex-shrink: 1;
+    }
+  }
+}
+
+.u {
+  @each $modifier, $breakpoint in $map-width-props {
+    @include create-display-classes($modifier, $breakpoint);
+  }
+}

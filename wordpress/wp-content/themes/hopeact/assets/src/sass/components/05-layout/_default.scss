@@ -1,0 +1,20 @@
+@use '../../abstracts' as *;
+
+/********************************
+	DEFAULT
+********************************/
+// .page__wrapper {
+// 	padding-top: $headerHeight_sm;
+// 	@include create-mq($md-width) {
+// 		padding-top: $headerHeight_md;
+// 	}
+
+// 	//TODO: if has announcment, add padding to the page wrapper
+// 	body & {
+// 		padding-top: calc($headerHeight_sm + rem(40));
+
+// 		@include create-mq($md-width) {
+// 			padding-top: calc($headerHeight_md + rem(40));
+// 		}
+// 	}
+// }

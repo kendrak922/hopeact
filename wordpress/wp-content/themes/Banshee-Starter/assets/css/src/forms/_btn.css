@@ -1,0 +1,104 @@
+/* ---------------------------------------------------------------------
+ Forms: Button Base
+------------------------------------------------------------------------ */
+.btn {
+    appearance: none;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 8px 40px !important; /* important necessary for button to work inside userContent */
+    border: 2px solid var(--color-brand-orange);
+    border-radius: 50px;
+    box-shadow: none;
+    background-color: var(--color-brand-orange);
+    background-image: none;
+    background-position: center;
+    color: var(--color-white);
+    font-family: var(--fontFamily-display);
+    font-size: var(--txt-xs);
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    text-shadow: none;
+    letter-spacing: 0;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    transition: var(--trans-all-quick);
+}
+
+.btn:focus-visible,
+.btn:hover,
+.btn[aria-selected="true"] {
+    background-color: var(--color-brand-orange);
+    border-color: var(--color-brand-orange);
+    background-image: none;
+    color: var(--color-white);
+}
+
+/* ---------------------------------------------------------------------
+ Forms: Button Variations
+------------------------------------------------------------------------ */
+.btn--primary {
+    /* all contained within .btn */
+}
+
+.btn--secondary {
+    background-color: var(--color-brand-blue);
+    border-color: var(--color-brand-blue);
+    color: var(--color-white);
+}
+
+.btn--secondary:focus-visible,
+.btn--secondary:hover,
+.btn--secondary[aria-selected="true"] {
+    background-color: var(--color-brand-blue);
+    border-color: var(--color-brand-blue);
+    color: var(--color-white);
+}
+
+.btn--tertiary {
+    background-color: var(--color-brand-pink);
+    border-color: var(--color-brand-pink);
+    color: var(--color-white);
+}
+
+.btn--tertiary:focus-visible,
+.btn--tertiary:hover,
+.btn--tertiary[aria-selected="true"] {
+    background-color: var(--color-brand-pink);
+    border-color: var(--color-brand-pink);
+    color: var(--color-white);
+}
+
+.btn--quaternary {
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-brand-blue);
+}
+
+.btn--quaternary:focus-visible,
+.btn--quaternary:hover,
+.btn--quaternary[aria-selected="true"] {
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-blue);
+}
+
+.btn--outline {
+    background-color: transparent;
+    border-color: var(--color-white);
+    color: var(--color-white);
+}
+
+.btn--outline:focus-visible,
+.btn--outline:hover,
+.btn--outline[aria-selected="true"] {
+    background-color: transparent;
+    border-color: var(--color-white);
+    color: var(--color-white);
+}

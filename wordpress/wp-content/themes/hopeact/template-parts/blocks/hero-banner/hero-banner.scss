@@ -1,0 +1,50 @@
+@use '../../../assets/src/sass/abstracts' as *;
+
+/******************************
+    BLOCK: Hero Banner
+******************************/
+section.block--hero-banner {
+    padding:0;
+    @include create-mq($md-width) {
+        padding: 2.5rem 0 ;
+        min-height: 33rem;
+    }
+    @include create-mq($lg-width) {
+        padding: $block-padding 0 ;
+        min-height: 45rem;
+    }
+    img{
+        width:100%;
+        object-fit: cover;
+    }
+
+    .yoast-breadcrumbs{
+        margin-bottom: 3rem;
+        margin-top: 0;
+    }
+
+    .container{
+        &[data-content-align-x='right'] {
+            justify-content: flex-end;
+            @include create-mq($md-width) {
+                .hero-banner__content{
+                    max-width: 31.5rem;
+                }
+            }
+        }
+        &[data-content-align-x='center'] {
+            justify-content: center;
+            @include create-mq($md-width) {
+                .hero-banner__content{
+                    max-width: 31.5rem;
+                }
+            }
+        }
+    }
+
+    .u-bgColorBlack{
+        @include create-mq($md-width) {
+            background: rgba(26, 24, 24, .95)
+        }
+    }
+} // close: .block--hero-banner

@@ -1,0 +1,32 @@
+@use '../../../assets/src/sass/abstracts' as *;
+
+/******************************
+    BLOCK: Divider
+******************************/
+.inner-block--divider {
+    background-color: swatch('Neutral');
+    border-radius: 2px;
+    height: .25rem;
+    margin: 1.5rem 0;
+    max-width: 13.5rem;
+    width: 80%;
+    @include create-mq($md-width) {
+        max-width: 22.5rem ; //360
+    }
+    span{
+        display: block;
+        height: .25rem;
+        transition: $t-default;
+        width: $block-padding;
+        @include create-mq($md-width) {
+            width: 7.5rem;
+        }
+        .card--clickable:hover &,
+        a:hover &{
+            width: 100%;
+        }
+    }
+    &--narrow{
+        width: 18rem ; //288
+    }
+} // close: .inner-block--divider

@@ -1,0 +1,24 @@
+@use '../../../assets/src/sass/abstracts' as *;
+
+/******************************
+    BLOCK: Featured Content (Case study)
+******************************/
+section.block--featured-content-cover {
+    padding:0;
+    @include create-mq($md-width) {
+        padding: 2.5rem 0 ;
+        min-height: 33rem;
+    }
+    @include create-mq($lg-width) {
+        padding: $block-padding 0 ;
+        min-height: 45rem;
+    }
+    img{
+        width:100%;
+        object-fit: cover;
+    }
+
+    .u-bgColorBlack{
+       background: rgba(26, 24, 24, .95)
+    }
+} // close: .block--featured-cover-image

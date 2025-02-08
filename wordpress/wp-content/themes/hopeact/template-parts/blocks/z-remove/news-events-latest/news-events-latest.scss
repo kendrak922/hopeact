@@ -1,0 +1,15 @@
+@use '../../../assets/src/sass/abstracts' as *;
+
+/******************************
+    BLOCK: News/Events Latest
+******************************/
+.block--news-events-latest {
+    .block-heading {
+        max-width: 21rem;
+        margin-left: auto;
+        margin-right: auto;
+        @include create-mq($md-width) {
+            max-width: none;
+        }
+    }
+}

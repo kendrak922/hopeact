@@ -1,0 +1,29 @@
+/* ---------------------------------------------------------------------
+ Layout: Wrapper
+------------------------------------------------------------------------ */
+.wrapper {
+    min-width: var(--global-min-width);
+    max-width: var(--global-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--global-wrapper-insulation);
+    padding-right: var(--global-wrapper-insulation);
+}
+
+/* inset sizes */
+.wrapper--inset-sm { max-width: var(--global-max-width-sm); }
+.wrapper--inset-md { max-width: var(--global-max-width-md); }
+.wrapper--inset-lg { max-width: var(--global-max-width-lg); }
+
+/* full bleed */
+.wrapper--full {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wrapper--full {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}

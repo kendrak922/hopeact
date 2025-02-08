@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      
+      {
+        "args": [
+          "task"
+        ],
+        "name": "Gulp task",
+        "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
+        "request": "launch",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+      {
+        "name": "Listen for XDebug",
+        "type": "php",
+        "request": "launch",
+        "port": 9003,
+        "log": false,
+        "pathMappings": {
+          "/app/": "${workspaceFolder}/",
+        }
+      }
+    ]
+  }

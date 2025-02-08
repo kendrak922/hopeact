@@ -1,0 +1,63 @@
+@use '../../../assets/src/sass/abstracts' as *;
+@use '../../../assets/src/sass/components/03-organisms/_accordion.scss' as accordion;
+
+/******************************
+    BLOCK: News Listing
+******************************/
+.block--news-listing {
+    @include create-mq($md-width) {
+        margin-top: -2rem;
+    }
+    //jumpnav
+    .news-listing {
+        &__jumpnav {
+            @include accordion.tabstyle-jumpnav;
+            .jumpnav__toggle {
+                background-color: swatch('Tertiary');
+                color: swatch('White');
+                &:hover,
+                &.is-active {
+                    background-color: swatch('Tertiary');
+                }
+            }
+        }
+        &__container {
+            @include accordion.tabstyle-jumpnav-wrapper;
+            @include create-mq($md-width) {
+                @include accordion.tabstyle-chips-wrapper;
+            }
+        }
+        &__filter {
+            @include accordion.tabstyle-jumpnav-tab;
+            @include create-mq($md-width) {
+                @include accordion.tabstyle-chips-tab;
+            }
+        }
+    }
+    //card
+    .results {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $grid-gutter-wide;
+        @include create-mq($md-width) {
+            gap: $grid-gutter;
+            grid-template-columns: 1fr 1fr;
+        }
+        @include create-mq($lg-width) {
+            gap: $grid-gutter-ultra-wide;
+            row-gap: $grid-gutter-wide;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .grid__col--loading {
+            @include create-mq($md-width) {
+                grid-column: 1 / span 2;
+            }
+            @include create-mq($lg-width) {
+                grid-column: 1 / span 3;
+            }
+        }
+    }
+    .card {
+        height: 100%;
+    }
+}

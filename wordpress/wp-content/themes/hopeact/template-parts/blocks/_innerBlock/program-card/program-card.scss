@@ -1,0 +1,155 @@
+@use '../../../assets/src/sass/abstracts' as *;
+@use '../../../assets/src/sass/base/fonts' as font;
+
+/******************************
+    BLOCK: Program Card
+******************************/
+.program-card {
+    @include font.lines();
+    border-radius: .5rem;
+    display: block;
+    overflow: hidden;
+
+    @include create-mq($md-width) {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &--reverse{
+        @include create-mq($md-width) {
+           flex-direction: row-reverse;
+        }
+    }
+
+    //add margin to cards in a row
+    div + &,
+    p + &,
+    & + .program-card{
+        margin-top: $block-padding-mobile;
+        @include create-mq($md-width) {
+            margin-top: $block-padding;
+        }
+    }
+
+    //image
+    .program-card__image{
+        width: 100%;
+        flex-shrink: 0;
+        @include create-mq($md-width) {
+            width: 50%;
+        }
+        img{
+            aspect-ratio: 3/2;
+            object-fit: cover;
+            width: 100%;
+            @include create-mq($md-width) {
+                height: 100%;
+            }
+        }
+    }
+
+    //content
+    .program-card__content{
+        flex-grow: 0;
+        width: 100%;
+        @include create-mq($md-width) {
+            width: 50%;
+        }
+    }
+    
+    // cards with a bg color (programs)
+    &.has-background{
+        font-family: $font-stack-secondary;
+        .program-card__content{
+            padding:1.5rem;
+        }
+        @include create-mq($md-width) {
+            .program-card__content{
+                padding:2.5rem;
+            }
+        }
+        @include create-mq($xl-width) {
+            .program-card__content{
+                width: 44%;
+                padding:3rem;
+            }
+            .program-card__image{
+                width: 56%;
+            }
+        }
+    }
+
+    body:not(.wp-admin) main &{
+        .program-card__title{
+            font-size: 1.5rem !important;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0;
+            @include create-mq($md-width) {
+                font-size: 2rem !important;
+            }
+        }
+    }
+
+    &.program-card--large{
+        @include create-mq($xl-width) {
+            body:not(.wp-admin) main &{
+                .program-card__title{
+                    font-size: 2.5rem !important;
+                }
+            }
+            .program-card__summary{
+                @include font.lines();
+                font-size: 1.5rem !important;
+            }
+        }
+    }
+
+    &.u-bgColorNone{
+        gap: 1.5rem;
+        border-radius: 0;
+        @include create-mq($md-width) {
+            gap: 2.5rem;
+        }
+        @include create-mq($lg-width) {
+            gap: 3rem;
+        }
+        .program-card__content{
+            padding: 1.5rem 0 0; //24
+            @include create-mq($md-width) {
+                padding:0;
+            }
+        }
+         body:not(.wp-admin) main &{
+            .program-card__title{
+                font-size: 2.5rem !important; //40
+            }
+            .program-card__summary{
+                @include font.bodySm();
+            }
+        }
+    }
+
+    &.card--clickable{
+        svg{
+            margin:0;
+            transition: $t-default;
+        }
+        &:hover{
+            cursor: pointer;
+            svg{
+                margin-left: 1rem;
+            }
+        }
+    }
+
+
+    @media (min-width: 1024px) and (max-width: 1200px) {
+        flex-direction: column;
+        .program-card__image,
+        .program-card__content{
+            width: 100%;
+        }
+    }
+} 
+

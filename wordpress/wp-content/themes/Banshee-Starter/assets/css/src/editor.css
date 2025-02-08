@@ -1,0 +1,13 @@
+/* ---------------------------------------------------------------------
+ Style Editor - css for the TinyMCE editor within WordPress
+------------------------------------------------------------------------ */
+
+@import "abstracts/_fonts.css";
+@import "abstracts/_variables.css";
+@import "content/_userContent.css";
+
+/* editor background */
+body#tinymce.wp-editor {
+    padding: 10px;
+    background-color: var(--color-white) !important;
+}

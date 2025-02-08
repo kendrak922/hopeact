@@ -1,0 +1,45 @@
+@use '../../../assets/src/sass/abstracts' as *;
+
+/******************************
+    BLOCK: Share
+******************************/
+.inner-block--share {
+    margin-top: 2.5rem; //48 (+spacing)
+    @include create-mq($md-width) {
+        margin-top: 2.5rem;
+    }
+    button{
+        font-size: .5rem;
+        color: swatch("Neutral");
+        &:hover{
+            color: swatch("Blue");
+        }
+        .fa-stack{
+            width: 1.75rem;
+        }
+        .u-darkMode &{
+            color: swatch("White");
+            .fa-inverse{
+                color: swatch("Neutral");
+            }
+            &:hover{
+                color: swatch("Blue");
+            }
+        }
+        .u-bgColorBlue &{
+            color: swatch("White");
+            .fa-inverse{
+                color: swatch("Blue");
+            }
+            &:hover{
+                color: swatch("Neutral");
+            }
+        }
+    }
+    .h--caption{
+        color: swatch("Gray");
+        .u-darkMode &{
+            color: swatch("White")
+        }
+    }
+}

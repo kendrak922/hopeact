@@ -1,0 +1,617 @@
+@use '../../abstracts' as *;
+@use '../../base/fonts' as font;
+@use '../01-atoms/button' as button;
+@use "sass:map";
+
+
+$menuHeight: (
+  'sm': map.get($headerHeight, 'sm'),
+  'lg': map.get($headerHeight, 'lg') ,
+  'scroll': map.get($headerHeight, 'scroll') 
+  // 'lg': map.get($headerHeight, 'lg') + map.get($utilityHeight, 'lg'),
+);
+
+/********************************
+	Menus
+********************************/
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  list-style: none;
+  margin: 0;
+  padding:0 $container-padding-mobile;
+  @include create-mq($md-width) {
+    padding:0 $container-padding-tablet;
+  }
+  @include create-mq($lg-width) {
+    flex-direction: row;
+    justify-content: end;
+    padding:0;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    width:100%;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding:0;
+  }
+
+  li {
+    margin: 0;
+    padding:0;
+    width:100%;
+    @include create-mq($lg-width) {
+      position: relative;
+      width: auto;
+    }
+    & > a,
+    & > .sub-menu--toggle-contain{
+      padding: 1.5rem 0;
+      @include create-mq($lg-width) {
+        padding: .75rem 0;
+      }
+
+      svg{
+        margin:-.25rem 0;
+      }
+    
+      // //expand
+      // button{
+      //   @include button.btnNormalize();
+      //   height:2rem;
+      //   width:2rem;
+      //   position: relative;
+      //   margin: -.5rem -.25rem -.5rem 0;
+      //   &::before,
+      //   &::after{
+      //     background: swatch('Neutral');
+      //     // border-radius: 1px;
+      //     content: '';
+      //     display: block;
+      //     height: 0.125rem;
+      //     left: .25rem;
+      //     position: absolute;
+      //     top:50%;
+      //     transform-origin: center;
+      //     width: 1rem;
+      //   }
+      //   &::before {
+      //     transform: rotate(90deg);
+      //     transition: transform ease-in-out $t-default;
+      //   }
+      //   &[aria-expanded='true']{
+      //     &::before {
+      //       transform: rotate(180deg);
+      //     }
+      //   }
+      //   &:hover,
+      //   &:focus{
+      //     &::before,&::after{
+      //       background-color: swatch('Blue');
+      //     }
+      //   }
+      // }
+      
+      // // default hovers
+      // &:hover,
+      // &:focus{
+      //   color: swatch('Blue');
+      //   @include create-mq($lg-width) {
+      //     // font-weight: 600;
+      //   }
+      //   svg path, svg rect{
+      //     stroke: swatch('Blue');
+      //   }
+      // }
+    }
+  }
+
+  // Sub Nav
+  .sub-menu--toggle-contain{
+    display: flex;
+    align-items: center;
+    gap:.5rem;
+  }
+
+  // HEADER
+  header & {
+    & > li{
+      line-height: 1;
+      @include create-mq($lg-width) {
+        &.is-active,
+        &.current-menu-ancestor,
+        &.current-menu-item{
+          & > a{
+            background-color: swatch('Black');
+            color: swatch('White');
+          }
+          & > .sub-menu--toggle-contain{
+            background-color: swatch('Black');
+            a{
+              color: swatch('White');
+            }
+            button{
+              &::before,&::after{
+                background-color: swatch('White');
+              }
+            }
+          }
+        }
+        & > a,
+        & > .sub-menu--toggle-contain{
+          // border-radius: .5rem;
+
+          body.scrolled & {
+            // border-radius: .5rem .5rem 0 0;
+            padding-bottom: 1rem;
+          }
+        }
+      }
+    }
+    
+    .menu-item{
+      border-bottom: .5px swatch('Black') solid;
+      a{
+        align-items: center;
+        display: flex;
+        gap: 0.5rem;
+      }
+      .menu-item{
+        border-bottom: none;
+      }
+      &.is-active > .sub-menu{
+        display: block;
+        left:0;
+        opacity: 1;
+        visibility: visible;
+      }
+      @include create-mq($lg-width) {
+        border: none;
+        &:hover > .sub-menu{
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    .sub-menu{
+      border-top: .5px swatch('Black') solid;
+      display: none;
+      font-size: 1rem;
+      position: relative;
+      width:100%;
+      z-index: 10;
+      .sub-menu__head{
+        border-bottom: 1px solid swatch("Gray");
+        padding: 1rem $container-padding-mobile;
+        text-align: center;
+        position: relative;
+        font-size: 1.125rem;
+        button{
+          position: absolute;
+          left: $container-padding-mobile;
+          top: .675rem;
+          height: 2rem;
+          width: 2rem;
+        }
+      }
+      @include create-mq($lg-width) {
+        display: none;
+        height:auto;
+        left:0;
+        min-width: 20rem;
+        position: relative;
+        top:100%;
+        .sub-menu__head{
+          display: none;
+        }
+      }
+    
+      //2nd level
+      & > ul {
+        padding: .75rem 0;
+        & > li{
+          & > a,
+          & > .sub-menu--toggle-contain{
+            padding: .75rem 0;
+          }
+        }
+        .sub-menu{
+          border: none;
+          ul{
+            padding:0;
+          }
+        }
+      }
+    }
+
+    //1st level
+    & > li > .sub-menu{
+      display: block;
+      @include create-mq($lg-width) {
+        display: none !important; // remove to allow desktop dropdown
+        position: absolute;
+        border-bottom: 1px #ddd solid;
+        box-shadow: 0px 0.25rem 1.5rem rgba(0, 0, 0, 0.05);
+        // border-radius: .5rem;
+        overflow: hidden;
+        padding:.5rem 0;
+      }
+    }
+
+    //HEADER: Main
+    &--main {
+      font-size: 1.5rem;
+      @include create-mq($lg-width) {
+        gap:.5rem;
+      }
+      @include create-mq($xl-width) {
+        gap:1rem;
+        font-size: 1.5rem;
+      }
+      & > .menu-item{
+        & > a,
+        & > .sub-menu--toggle-contain{
+          @include create-mq($lg-width) {
+            font-size: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            button{
+              display: none !important; // remove to allow desktop dropdown
+            }
+          }
+        }
+        
+        & > .sub-menu--toggle-contain{
+          button{
+            display: none !important; // remove to allow desktop dropdown
+          }
+        }
+        
+      }
+    }
+
+    //HEADER: Utility
+    &--utility {
+      font-size: 1.5rem;
+      @include create-mq($lg-width) {
+        font-size: 1rem;
+        margin: 0 0 0 1.25rem;
+        padding: 0 0 0 1.25rem;
+        position: relative;
+        &::before{
+          background: #B3B3B3;
+          content:'';
+          display: block;
+          height: 2rem;
+          left:-1px;
+          position: absolute;
+          top:.625rem;
+          transition: top ease-in-out $t-default, height ease-in-out $t-default;
+          width: 1px;
+          body.scrolled & {
+            height: 2.25rem;
+            top:.75rem;
+          }
+        }
+      }
+      & > .menu-item{
+        & > a,
+        & > .sub-menu--toggle-contain{
+          @include create-mq($lg-width) {
+            padding: 1rem;
+          }
+        }
+        @include create-mq($lg-width) {
+          &:not(:first-child){
+            position: relative;
+            a{
+              margin: 0 -2px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // SIDEBAR: Page
+  aside .sidebar__menu--page &{
+    & > li:not(.current_page_ancestor){
+      display: none;
+    }
+  }
+  // SIDEBAR
+  aside & {
+    font-size: 1rem;
+    @include create-mq($lg-width) {
+      flex-direction: column;
+      text-align: right;
+    }
+    // lvl1
+    & > li  > .sub-menu--toggle-contain,
+    .sub-menu__head{
+      display: none;
+    }
+    a{
+      text-align: left;
+    }
+
+    .sub-menu {
+      .sub-menu{
+        display: none;
+        visibility: hidden;
+        .menu-item{
+          a{
+            padding: .75rem 1rem;
+          }
+          &::before{
+            content:'';
+            background: transparent;
+            display: block;
+            height: 1px;
+            margin: 0px 0 -1px 1rem;
+          }
+          &:first-child::before{
+            background: #B3B3B3;
+          }
+          &::after{
+            display: none;
+          }
+        }
+      }
+      .menu-item.is-active > .sub-menu{
+        display: block;
+        left:0;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+      
+    .menu-item{
+      &::after{
+        content:'';
+        background: #B3B3B3;
+        display: block;
+        height: 1px;
+        margin: 0 0 -1px 1rem;
+      }
+      &.current_page_item::after,
+      &:focus::after{
+        opacity: 0;
+      }
+      & > a,
+      & > .sub-menu--toggle-contain{
+        // border-radius: .5rem 0 0 .5rem;
+        padding: .875rem 1rem;
+      }
+      &.current-menu-item{
+        & > a{
+          background-color: swatch('Black');
+          color: swatch('White');
+        }
+        & > .sub-menu--toggle-contain{
+          background-color: swatch('Black');
+          a{
+            color: swatch('White');
+          }
+          button{
+            &::before,&::after{
+              background-color: swatch('White');
+            }
+          }
+        }
+      }
+    }
+    //table of contents
+    &--toc{
+      .menu-item.is-active{
+        a{
+          background-color: swatch('Blue');
+          color: swatch('White');
+        }
+        &::after{
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+
+  // FOOTER
+  footer & {
+    font-size: 1rem;
+    gap: .5rem;
+    justify-content: flex-start;
+    padding:0;
+    width: 100%;
+    h1,h2,h3{
+      @include font.largeNav();
+      margin:0;
+    }
+    .menu-item{
+      break-inside: avoid-column;
+      & > a,
+      & > .sub-menu--toggle-contain{
+        align-items: center;
+        display: flex;
+        padding: 1rem 0; 
+        gap:.5rem;
+      }
+      svg{
+        margin:-.5rem 0;
+      }
+      svg path, svg rect{
+        stroke: swatch("White");
+      }
+    }
+    //top
+    &--footer{
+      @include font.largeNav();
+      padding-bottom: 1.5rem;
+      @include create-mq($md-width) {
+        columns: 2;
+        display: block;
+        & > .menu-item{
+          margin-bottom: .25rem;
+          white-space: nowrap;
+          max-width: 10rem;
+        }
+      }
+      @include create-mq($lg-width) {
+        display: flex;
+        gap: .5rem;
+        justify-content: space-between;
+        max-width: 100%;
+        & > .menu-item{
+          margin-bottom: 0rem;
+          white-space: normal;
+        }
+      }
+      .sub-menu{
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        gap: 1rem;
+        margin: 0.875rem 0 0.5rem;
+        line-height: 1;
+        @include create-mq($md-width) {
+          gap: 0;
+          margin-top: 0;
+          margin-bottom: .25rem;
+        }
+        .menu-item{
+          & > a,
+          & > .sub-menu--toggle-contain{
+            padding: .75rem 0; 
+          }
+        }
+      }
+    }
+    //bottom
+    &--footer2{
+      padding:0;
+      @include create-mq($md-width) {
+        flex-direction: row;
+        gap: 2rem;
+        li{
+          width: auto;
+        }
+      }
+      @include create-mq($lg-width) {
+        gap: 4rem;
+      }
+    }
+  }
+}
+
+/* Mobile Menu Wrapper: Contains the mobile menu functionality */
+header .menu-wrapper--main{
+  background: swatch('White');
+  border-top: .5px swatch('Gray') solid;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - map.get($menuHeight, 'sm'));
+  height: calc(100dvh - map.get($menuHeight, 'sm'));
+  justify-content: flex-start;
+  right: 0;
+  opacity: 0;
+  overflow: auto;
+  position: absolute;
+  top: map.get($menuHeight, 'sm');
+  transform: translate(100%,0);
+  transition: all 0.5s ease-in-out;
+  visibility: hidden;
+  width: 100%;
+  @include create-mq($md-width) {
+    border-top-color: #B3B3B3;
+    max-width: 30rem;
+  }
+  @include create-mq($lg-width) {
+    align-items: center;
+    background: none;
+    border: unset;
+    display: flex !important;
+    height: auto;
+    left: unset;
+    max-height: none;
+    max-width: none;
+    opacity: 1;
+    overflow: unset;
+    position: relative;
+    right: unset;
+    top: 0;
+    transform: unset;
+    transition: padding ease-in-out $t-default;
+    visibility: visible;
+    width: auto;
+  }
+
+  nav{
+    align-items: flex-start;
+    flex-direction: column;
+    @include create-mq($lg-width) {
+      align-items: flex-end;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      padding-left: 2rem;
+    }
+    div{
+      align-items: flex-end;
+      width: 100%;
+      @include create-mq($lg-width) {
+        width:auto;
+      }
+    }
+  }
+  .menu-wrapper--footer{
+    @include font.smallNavLines();
+    padding: $container-padding-mobile;
+    @include create-mq($md-width) {
+      padding: $container-padding-mobile $container-padding-tablet;
+    }
+  }
+
+  body.admin-bar & {
+    height: calc(100vh - map.get($menuHeight, 'sm') - map.get($adminHeight, 'sm'));
+    height: calc(100dvh - map.get($menuHeight, 'sm') - map.get($adminHeight, 'sm'));
+    @include create-mq($admin-width) {
+      height: calc(100vh - map.get($menuHeight, 'sm') - map.get($adminHeight, 'lg'));
+      height: calc(100dvh - map.get($menuHeight, 'sm') - map.get($adminHeight, 'lg'));
+    }
+    @include create-mq($lg-width) {
+      height: auto;
+    }
+  }
+  body.active--mobileMenu & {
+    opacity: 1;
+    transform: translate(0,0);
+    visibility: visible;
+    @include create-mq($lg-width) {
+      left: unset;
+      right: 0;
+    }
+  }
+  body.scrolled & {
+    @include create-mq($lg-width) {
+      max-height: calc(100vh - map.get($menuHeight, 'scroll'));
+      max-height: calc(100dvh - map.get($menuHeight, 'scroll'));
+      padding-top:1.5rem;
+    }
+  }
+  body.admin-bar.scrolled & {
+    max-height: calc(100vh - map.get($menuHeight, 'scroll') - map.get($adminHeight, 'sm'));
+    max-height: calc(100dvh - map.get($menuHeight, 'scroll') - map.get($adminHeight, 'sm'));
+    @include create-mq($admin-width) {
+      max-height: calc(100vh - map.get($menuHeight, 'scroll') - map.get($adminHeight, 'lg'));
+      max-height: calc(100dvh - map.get($menuHeight, 'scroll') - map.get($adminHeight, 'lg'));
+    }
+  }
+
+}

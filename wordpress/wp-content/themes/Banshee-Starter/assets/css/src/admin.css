@@ -1,0 +1,96 @@
+/* ---------------------------------------------------------------------
+ Admin CSS - Injected into the WordPress Dashboard
+------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------
+ Hide customize button on Theme selection pages
+------------------------------------------------------------------------ */
+/*  */
+.theme-actions .button.customize {
+    display: none !important;
+}
+
+/* ---------------------------------------------------------------------
+ Add interface colored swatches to ACF picker
+------------------------------------------------------------------------ */
+.wa_acf_swatch .acf-radio-list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}
+
+.wa_acf_swatch .acf-radio-list::before,
+.wa_acf_swatch .acf-radio-list::after {
+    display: none;
+}
+
+.wa_acf_swatch .acf-radio-list input[type=radio] {
+    margin-right: 10px;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label {
+    display: inline-block;
+    border: 1px solid transparent;
+    padding: 5px 16px;
+    border-radius: 22px;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=default]),
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=txtColor]),
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=hdgColor]) {
+    background-color: #f1f1f1;
+    border-color: #ccc;
+    border-style: dotted;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=transparent]) {
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=white]) {
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=offWhite]) {
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=beige]) {
+    background-color: #faf0e8;
+    border-color: #faf0e8;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=pink]) {
+    background-color: #FF7DFF;
+    border-color: #FF7DFF;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=red]) {
+    background-color: #FF380B;
+    border-color: #FF380B;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=blue]) {
+    background-color: #7490FF;
+    border-color: #7490FF;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=lightBlue]) {
+    background-color: #E4EAFF;
+    border-color: #E4EAFF;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=green]) {
+    background-color: #C7EF00;
+    border-color: #C7EF00;
+}
+
+.wa_acf_swatch .acf-radio-list > li > label:has(input[type=radio][value=black]) {
+    background-color: #1C2321;
+    border-color: #1C2321;
+    color: #fff;
+}
+

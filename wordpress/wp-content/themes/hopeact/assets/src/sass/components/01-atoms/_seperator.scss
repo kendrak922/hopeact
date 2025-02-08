@@ -1,0 +1,42 @@
+@use '../../abstracts' as *;
+@use '../../base/fonts' as font;
+
+/********************************
+	Atom: Content Seperator
+********************************/
+/* Content Seperators */
+.content-seperator{
+  body:not(.wp-admin) main &,
+  .wp-admin .is-root-container & {
+    border-bottom: .5px solid swatch("Neutral");
+    margin-bottom: 2rem;
+    @include create-mq($md-width) {
+      margin-bottom: 2rem;
+    }
+    &:not(:first-child){
+      margin-top: 2rem;
+      @include create-mq($md-width) {
+        margin-top: 2rem;
+      }
+    }
+  }
+  .u-bgColorWhite &,
+  .u-bgColorLightGray &{
+    color: swatch('Blue')
+  }
+
+  &.has-text{
+    padding-bottom: .5rem;
+    &:not(:first-child){
+      margin-top: $block-padding-mobile;
+      @include create-mq($md-width) {
+        margin-top: $block-padding;
+      }
+      .block--padding-large &{
+        @include create-mq($lg-width) {
+          margin-top: $block-padding-lg;
+        }
+      }
+    }
+  }
+}

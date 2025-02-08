@@ -1,0 +1,71 @@
+@use '../../../assets/src/sass/abstracts' as *;
+
+/******************************
+    BLOCK: Hero Block
+******************************/
+section.block--hero-block {
+    position: relative;
+    overflow: hidden;
+
+    @include create-mq($lg-width) {
+        &.has-image{
+            min-height:54rem;
+        }
+    }
+    .hero-block__media {
+        margin: $block-padding-mobile (-$container-padding-mobile) (-$block-padding-mobile);
+        width: calc( ($container-padding-mobile * 2) + 100%);
+        img{
+            aspect-ratio: 1.5;
+            max-width: none;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        @include create-mq($md-width) {
+            bottom: 0;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 33%;
+            img {
+                aspect-ratio: unset;
+                height: 100%;
+            }
+        }
+        @include create-mq($xl-width) {
+            bottom: 0;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 48%;
+            img {
+                height: 100%;
+            }
+        }
+    }
+
+    .hero-block__content {
+        @include create-mq($md-width) {
+            max-width: 67%;
+            padding-right: 4.5rem;
+        }
+        @include create-mq($xl-width) {
+            max-width: 52%;
+            padding-right: 7.5%;
+        }
+        
+        //no image
+        &--center{
+            max-width: none !important;
+            @include create-mq($lg-width) {
+                max-width: 40.5rem !important;
+                margin: 0 auto;
+                padding: 0 0 3rem;
+            }
+        }
+    }
+
+}

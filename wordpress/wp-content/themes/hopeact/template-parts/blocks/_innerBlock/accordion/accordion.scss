@@ -1,0 +1,103 @@
+@use '../../../assets/src/sass/abstracts' as *;
+@use '../../../assets/src/sass/base/fonts' as heading;
+@use '../../../assets/src/sass/components/03-organisms/_accordion' as accordion;
+
+/******************************
+    BLOCK: Accordion Tabs
+******************************/
+.inner-block--accordion {
+    /***** ACCORDION *****/
+    border-radius: 0.25rem;
+    &.accordion--mobile-only {
+        display: block;
+        @include create-mq($md-width) {
+            display: none;
+        }
+    }
+    .accordionTab {
+        border-radius: 5px;
+        transition: $transition-default;
+        margin-top: 1.25rem;
+
+        @include create-mq($md-width) {
+            padding: 0 2rem 0 2.5rem; //40
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+        .accordionTab__trigger {
+            background: transparent;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.25rem 0;
+            font-size: 1.25rem;
+            font-weight: 400;
+            width: 100%;
+            gap: 16px;
+
+            @include create-mq($md-width) {
+                font-size: 1.5rem;
+            }
+            .h5,h3 {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+            .line {
+                flex-grow: 2;
+                width: 100%;
+                background-color: swatch('Neutral');
+                height: 2px;
+            }
+            .toggle {
+                height: 2rem;
+                width: 2rem;
+                position: relative;
+                margin: -.5rem -.25rem -.5rem 0;
+
+                &::before,
+                &::after {
+                    background: swatch('Neutral');
+                    border-radius: 1px;
+                    content: '';
+                    display: block;
+                    height: 0.125rem;
+                    left: .25rem;
+                    position: absolute;
+                    top: 50%;
+                    transform-origin: center;
+                    width: 1rem;
+                }
+
+                &::before {
+                    transform: rotate(90deg);
+                    transition: transform ease-in-out $t-default;
+                }
+
+
+            }
+            &[aria-expanded='true'] {
+                .toggle::before {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        // .accordionTab__content {
+        //     display: none;
+
+        //     &>.grid {
+        //         padding: 0.25rem 0 1.25rem;
+
+        //         @include create-mq($md-width) {
+        //             padding: 0.5rem 0 2.5rem;
+        //         }
+        //     }
+        // }
+    }
+
+}

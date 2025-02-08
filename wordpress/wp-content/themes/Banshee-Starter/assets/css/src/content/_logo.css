@@ -1,0 +1,19 @@
+/* ---------------------------------------------------------------------
+ Content: Logo
+------------------------------------------------------------------------ */
+.logo {
+    max-width: 190px;
+}
+
+.logo--fullwidth {
+    max-width: none;
+}
+
+.logo svg,
+.logo img {
+    display: block;
+}
+
+.home .logo {
+    display: none;
+}

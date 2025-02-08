@@ -1,0 +1,26 @@
+/* ---------------------------------------------------------------------
+ Layout: Series
+------------------------------------------------------------------------ */
+.series {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+}
+
+.series--xs { gap: 5px; }
+.series--sm { gap: 10px; }
+.series--md { gap: 20px; }
+.series--lg { gap: 30px; }
+.series--xl { gap: 40px; }
+
+.series--j-left {
+    justify-content: flex-start;
+}
+
+.series--j-center {
+    justify-content: center;
+}
+
+.series--j-right {
+    justify-content: flex-end;
+}

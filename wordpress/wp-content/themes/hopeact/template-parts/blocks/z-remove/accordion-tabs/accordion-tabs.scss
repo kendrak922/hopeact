@@ -1,0 +1,200 @@
+@use '../../../assets/src/sass/abstracts' as *;
+
+@use '../../../assets/src/sass/base/fonts' as heading;
+@use '../../../assets/src/sass/components/03-organisms/_accordion' as accordion;
+
+/******************************
+    BLOCK: Accordion Tabs
+******************************/
+.block--accordionTabs {
+	.accordionTabs__wrapper {
+		/***** ACCORDION *****/
+		&[data-type^='accordion'] {
+			border-radius: 0.25rem;
+			.accordionTab {
+				padding: 0 1rem 0 1rem;
+				border-radius: 5px;
+				background-color: swatch('White');
+				transition: $transition-default;
+				margin-top: 1.25rem;
+				@include create-mq($md-width) {
+					padding: 0 2rem 0 2.5rem; //40
+				}
+				&:first-child {
+					margin-top: 0;
+				}
+				&:not(.active) {
+					background-color: swatch('Tertiary');
+					color: swatch('White');
+					.toggle__wrapper .toggle::before,
+					.toggle__wrapper .toggle::after {
+						background: swatch('White');
+					}
+				}
+				.accordionTab__trigger {
+					@include heading.h5();
+					background: transparent;
+					border: none;
+					color: inherit;
+					cursor: pointer;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding: 1.25rem 0;
+					font-size: 1.25rem;
+					font-weight: 400;
+					text-transform: uppercase;
+					width: 100%;
+
+					@include create-mq($md-width) {
+						font-size: 1.5rem;
+					}
+					.toggle {
+						height: 1.25rem;
+						width: 1.25rem;
+						padding: 0.5rem 0.275rem;
+						border-radius: 50%;
+						border: 1.5px solid white;
+						transition: $transition-default;
+						&::before,
+						&::after {
+							width: 0.5rem;
+							height: 1.5px;
+						}
+						&::after {
+							margin-top: -1.5px;
+						}
+						@include create-mq($md-width) {
+							height: 1.75rem;
+							width: 1.75rem;
+							padding: 0.75rem 0.5rem;
+							&::before,
+							&::after {
+								width: 0.625rem;
+							}
+						}
+					}
+					&.active .toggle {
+						border-color: swatch('Black');
+						&::before,
+						&::after {
+							background-color: swatch('Black');
+						}
+					}
+				}
+				.accordionTab__content {
+					display: none;
+					& > .grid {
+						padding: 0.25rem 0 1.25rem;
+						@include create-mq($md-width) {
+							padding: 0.5rem 0 2.5rem;
+						}
+					}
+					.accordionTab__buttons {
+						margin-top: 2rem;
+						@include create-mq($md-width) {
+							margin-top: 3rem;
+						}
+					}
+				}
+			}
+
+			.accordionTabs__bottom {
+				display: none;
+			}
+		} // End Layout: Accordion
+
+		/***** TABS *****/
+		&[data-type='tabs-jumpnav'] {
+			// Top - Tab Toggles
+			.accordionTabs__jumpnav {
+				@include accordion.tabstyle-jumpnav;
+			}
+			.accordionTabs__top {
+				@include accordion.tabstyle-jumpnav-wrapper;
+				@include create-mq($md-width) {
+					@include accordion.tabstyle-tabs-wrapper;
+				}
+				.accordionTab {
+					@include create-mq($md-width) {
+						flex: 1 1 auto;
+						min-width: 20%;
+					}
+					@include create-mq($lg-width) {
+						flex-basis: 100%;
+						min-width: unset;
+					}
+
+					.accordionTab__trigger {
+						@include accordion.tabstyle-jumpnav-tab;
+						@include create-mq($md-width) {
+							@include accordion.tabstyle-tabs-tab;
+						}
+					}
+				}
+				.accordionTab__content {
+					display: none;
+				}
+			}
+			/**** DARK MODE ****/
+			.u-darkMode {
+				// Top - Tab Toggles
+				.accordionTabs__jumpnav {
+					.jumpnav__toggle {
+						background-color: swatch('Tertiary');
+						color: swatch('White');
+						&:hover,
+						&.is-active {
+							background-color: swatch('Tertiary');
+						}
+					}
+				}
+				.accordionTabs__top {
+					.accordionTab {
+						@include create-mq($md-width) {
+							.accordionTab__trigger {
+								background-color: swatch('Tertiary');
+								color: swatch('White');
+								width: 100%;
+
+								&.active {
+									background-color: swatch('Tertiary');
+								}
+							}
+						}
+					}
+				}
+				// Bottom - Tab Content
+				.accordionTabs__bottom {
+					.accordionTab__content {
+						background-color: swatch('Tertiary');
+					}
+				}
+			}
+		}
+		&[data-type='tabs'] {
+			// Top - Tab Toggles
+			.accordionTabs__top {
+				@include accordion.tabstyle-tabs-wrapper;
+				.accordionTab__trigger {
+					@include accordion.tabstyle-tabs-tab;
+				}
+				.accordionTab__content {
+					display: none;
+				}
+			}
+		}
+		&[data-type='tabs-jumpnav'],
+		&[data-type='tabs'] {
+			// Bottom - Tab Content
+			.accordionTabs__bottom {
+				position: relative;
+
+				.accordionTab__content {
+					@include accordion.tabstyle-content;
+					display: none;
+				}
+			}
+		} // End Layout: Tabs
+	}
+} // close: .block--accordion

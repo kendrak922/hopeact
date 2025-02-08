@@ -1,0 +1,26 @@
+{
+    "__helpful_article__": "https://www.billerickson.net/building-acf-blocks-with-block-json",
+    "name": "acf/example",
+    "title": "Example",
+    "description": "This is an example block",
+    "style": "file:./example.css",
+    "script": "file:./example.js",
+    "category": "custom",
+    "icon": "editor-paragraph",
+    "apiVersion": 2,
+    "keywords": [],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "example.php"
+    },
+    "styles": [],
+    "supports": {
+        "align": false,
+        "alignText": false,
+        "alignContent": false,
+        "anchor": true,
+        "customClassName": true,
+        "fullHeight": false
+    },
+    "attributes": {}
+}

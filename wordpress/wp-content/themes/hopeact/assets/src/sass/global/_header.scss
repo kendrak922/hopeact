@@ -1,0 +1,108 @@
+@use '../abstracts' as *;
+@use "sass:map";
+
+/********************************
+	HEADER
+********************************/
+
+.header {
+    font-family: $font-stack-secondary;
+    font-size: rem(33);
+    font-weight: 500;
+    height: calc(map.get($headerHeight, 'sm'));
+    position: relative;
+    transition: height 0.2s ease-in-out;
+    z-index: 99998;
+    @include create-mq($lg-width) {
+        height: calc(map.get($headerHeight, 'lg'));
+    }
+
+    //header
+    &--fixed {
+        position: fixed;
+        width: 100%;
+        z-index: 99999;
+        border-bottom: .5px #B3B3B3 solid;
+        box-shadow: 0px 0.25rem 1.5rem rgba(0, 0, 0, 0.05);
+        &.animate {
+            transition: top 0.6s ease-in-out;
+        }
+    }
+
+    // logo
+    &__logo {
+        height: auto;
+        img{
+            height: 2.5rem;
+            width: auto;
+            object-fit: contain;
+            @include create-mq($lg-width) {
+                height: 5rem;
+                transition: height ease-in-out $t-default;
+                body.scrolled & {
+                    height: 2.5rem;
+                }
+            }
+        }
+    }
+
+    // overlay
+    &__overlay {
+        content: '';
+        background: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        opacity: 0;
+        pointer-events: none;
+        transition: $transition-default;
+        backdrop-filter: blur(5px);
+        .active--mobileMenu & {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    // header bar molecule
+    &-bar {
+        &--main {
+            .header-bar__wrapper {
+                height: map.get($headerHeight, 'sm');
+                @include create-mq($lg-width) {
+                    height: map.get($headerHeight, 'lg');
+                    transition: height ease-in-out $t-default;
+                    body.scrolled & {
+                        height: calc(map.get($headerHeight, 'scroll'));
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+
+        &--utility {
+            .menu > li {
+                a {
+                    padding: 0;
+                }
+            }
+        }
+
+        &__item {
+            align-items: center;
+            display: flex;
+
+            &__inner {
+                flex-direction: column;
+
+                &--balance {
+                    transition: $transition-default;
+                    @include create-mq($lg-width) {
+                        padding-top: 1.75rem;
+                    }
+                }
+            }
+        }
+    }
+}

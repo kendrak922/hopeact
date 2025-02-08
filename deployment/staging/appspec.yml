@@ -1,0 +1,9 @@
+version: 0.0
+os: linux
+files:
+  - source: wordpress-out
+    destination: /var/www/vhosts/l05.project-qa.com/creativeforcesnrc.arts.gov.staging.l05.project-qa.com
+hooks:
+  AfterInstall:
+    - location: scripts/setPermissions.sh
+file_exists_behavior: OVERWRITE

@@ -22,8 +22,26 @@ $menuHeight: (
   list-style: none;
   margin: 0;
   padding:0 $container-padding-mobile;
+
+  &--footer-social{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+&--footer ul{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  a {
+    padding: 0;
+  }
+}
+
   @include create-mq($md-width) {
     padding:0 $container-padding-tablet;
+    align-items: center;
   }
   @include create-mq($lg-width) {
     flex-direction: row;
@@ -51,66 +69,6 @@ $menuHeight: (
       position: relative;
       width: auto;
     }
-    & > a,
-    & > .sub-menu--toggle-contain{
-      padding: 1.5rem 0;
-      @include create-mq($lg-width) {
-        padding: .75rem 0;
-      }
-
-      svg{
-        margin:-.25rem 0;
-      }
-    
-      // //expand
-      // button{
-      //   @include button.btnNormalize();
-      //   height:2rem;
-      //   width:2rem;
-      //   position: relative;
-      //   margin: -.5rem -.25rem -.5rem 0;
-      //   &::before,
-      //   &::after{
-      //     background: swatch('Neutral');
-      //     // border-radius: 1px;
-      //     content: '';
-      //     display: block;
-      //     height: 0.125rem;
-      //     left: .25rem;
-      //     position: absolute;
-      //     top:50%;
-      //     transform-origin: center;
-      //     width: 1rem;
-      //   }
-      //   &::before {
-      //     transform: rotate(90deg);
-      //     transition: transform ease-in-out $t-default;
-      //   }
-      //   &[aria-expanded='true']{
-      //     &::before {
-      //       transform: rotate(180deg);
-      //     }
-      //   }
-      //   &:hover,
-      //   &:focus{
-      //     &::before,&::after{
-      //       background-color: swatch('Blue');
-      //     }
-      //   }
-      // }
-      
-      // // default hovers
-      // &:hover,
-      // &:focus{
-      //   color: swatch('Blue');
-      //   @include create-mq($lg-width) {
-      //     // font-weight: 600;
-      //   }
-      //   svg path, svg rect{
-      //     stroke: swatch('Blue');
-      //   }
-      // }
-    }
   }
 
   // Sub Nav
@@ -124,30 +82,32 @@ $menuHeight: (
   header & {
     & > li{
       line-height: 1;
+      &:not(.btn--primary) a{
+        color: black;
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset:  .5rem;
+            color: $color-black;
+        }
+      }
       @include create-mq($lg-width) {
         &.is-active,
         &.current-menu-ancestor,
-        &.current-menu-item{
-          & > a{
-            background-color: swatch('Black');
-            color: swatch('White');
-          }
+        &.current-menu-item {
+          a {
+            text-decoration: underline;
+            text-underline-offset: .5rem;
+            text-decoration-color: swatch('Orange');
+        }
           & > .sub-menu--toggle-contain{
-            background-color: swatch('Black');
-            a{
-              color: swatch('White');
-            }
-            button{
-              &::before,&::after{
-                background-color: swatch('White');
-              }
+            a {
+                text-decoration: underline;
             }
           }
         }
         & > a,
         & > .sub-menu--toggle-contain{
           // border-radius: .5rem;
-
           body.scrolled & {
             // border-radius: .5rem .5rem 0 0;
             padding-bottom: 1rem;
@@ -166,6 +126,7 @@ $menuHeight: (
       .menu-item{
         border-bottom: none;
       }
+    
       &.is-active > .sub-menu{
         display: block;
         left:0;
@@ -249,12 +210,13 @@ $menuHeight: (
 
     //HEADER: Main
     &--main {
-      font-size: 1.5rem;
+      @include font.smallNav();
+      // font-size: 1.5rem;
       @include create-mq($lg-width) {
         gap:.5rem;
       }
       @include create-mq($xl-width) {
-        gap:1rem;
+        gap:8rem;
         font-size: 1.5rem;
       }
       & > .menu-item{
@@ -393,8 +355,7 @@ $menuHeight: (
       }
       &.current-menu-item{
         & > a{
-          background-color: swatch('Black');
-          color: swatch('White');
+              text-decoration: underline;
         }
         & > .sub-menu--toggle-contain{
           background-color: swatch('Black');
@@ -403,7 +364,7 @@ $menuHeight: (
           }
           button{
             &::before,&::after{
-              background-color: swatch('White');
+              // background-color: swatch('White');
             }
           }
         }
@@ -419,93 +380,6 @@ $menuHeight: (
         &::after{
           opacity: 0;
         }
-      }
-    }
-  }
-
-
-  // FOOTER
-  footer & {
-    font-size: 1rem;
-    gap: .5rem;
-    justify-content: flex-start;
-    padding:0;
-    width: 100%;
-    h1,h2,h3{
-      @include font.largeNav();
-      margin:0;
-    }
-    .menu-item{
-      break-inside: avoid-column;
-      & > a,
-      & > .sub-menu--toggle-contain{
-        align-items: center;
-        display: flex;
-        padding: 1rem 0; 
-        gap:.5rem;
-      }
-      svg{
-        margin:-.5rem 0;
-      }
-      svg path, svg rect{
-        stroke: swatch("White");
-      }
-    }
-    //top
-    &--footer{
-      @include font.largeNav();
-      padding-bottom: 1.5rem;
-      @include create-mq($md-width) {
-        columns: 2;
-        display: block;
-        & > .menu-item{
-          margin-bottom: .25rem;
-          white-space: nowrap;
-          max-width: 10rem;
-        }
-      }
-      @include create-mq($lg-width) {
-        display: flex;
-        gap: .5rem;
-        justify-content: space-between;
-        max-width: 100%;
-        & > .menu-item{
-          margin-bottom: 0rem;
-          white-space: normal;
-        }
-      }
-      .sub-menu{
-        display: flex;
-        flex-direction: column;
-        font-size: 1rem;
-        gap: 1rem;
-        margin: 0.875rem 0 0.5rem;
-        line-height: 1;
-        @include create-mq($md-width) {
-          gap: 0;
-          margin-top: 0;
-          margin-bottom: .25rem;
-        }
-        .menu-item{
-          & > a,
-          & > .sub-menu--toggle-contain{
-            padding: .75rem 0; 
-          }
-        }
-      }
-    }
-    //bottom
-    &--footer2{
-      padding:0;
-      @include create-mq($md-width) {
-        flex-direction: row;
-        gap: 2rem;
-        li{
-          width: auto;
-        }
-      }
-      @include create-mq($lg-width) {
-        gap: 4rem;
       }
     }
   }
@@ -570,13 +444,7 @@ header .menu-wrapper--main{
       }
     }
   }
-  .menu-wrapper--footer{
-    @include font.smallNavLines();
-    padding: $container-padding-mobile;
-    @include create-mq($md-width) {
-      padding: $container-padding-mobile $container-padding-tablet;
-    }
-  }
+
 
   body.admin-bar & {
     height: calc(100vh - map.get($menuHeight, 'sm') - map.get($adminHeight, 'sm'));

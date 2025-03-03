@@ -59,19 +59,31 @@ body * {
 			justify-content: flex-end;
 			text-align: right;
 		}
+		
 	}
 
 	// Vertical Align
 	&[data-align-y='top'] {
 		align-items: flex-start;
+
+		.wp-block-columns {
+			justify-content: flex-start!important;
+		}
 	}
 
 	&[data-align-y='center'] {
 		align-items: center;
+		.wp-block-columns {
+			align-items: center!important;
+		}
 	}
 
 	&[data-align-y='bottom'] {
 		align-items: flex-end;
+
+		.wp-block-columns {
+			justify-content: flex-end!important;
+		}
 	}
 }
 

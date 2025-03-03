@@ -65,7 +65,7 @@ function publicationFromID($id){
 
 
 
-//convert to resource-listing array
+//convert to story-listing array
 function resourcesFromQuery($categories=[], $tags=[], $audience=[], $audience_exclude=[]){
     $result = [];
     $args = array(
@@ -119,7 +119,7 @@ function resourcesFromQuery($categories=[], $tags=[], $audience=[], $audience_ex
 
     return $result;
 }
-//convert to resource-listing item
+//convert to story-listing item
 function resourceFromID($id){
     $eyebrow = '';
     $term_obj_list = get_the_terms( $id, 'resources-category' ); 
@@ -387,4 +387,40 @@ function personFromID($id){
         'position'=> get_field('position',$id),
         'imageID' =>  get_post_thumbnail_id($id)
     );
+}
+
+
+//convert to story item
+function storyFromID($id){
+    return array(
+        'id' =>$id,
+        'title' => get_the_title($id),
+        'imageID' =>  get_post_thumbnail_id($id),
+        'url' => get_the_permalink($id),
+        'description' => get_the_excerpt($id),
+        'accent_image' => get_field('accent_image', $id)
+    );
+}
+
+
+
+function storiesFromQuery()
+{
+    $result = [];
+    $args = array(
+        'post_type' => 'story',
+        'orderby' => array(
+            'date' => 'DESC', 
+        ),
+    );
+    $query = new WP_Query($args);
+    if ($query->have_posts()) :
+        while ($query->have_posts()) :
+            $query->the_post();
+            $id = get_the_ID();
+            $result[] =  storyFromID($id);
+        endwhile;
+    endif;
+    return $result;
+    
 }

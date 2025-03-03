@@ -4,28 +4,27 @@
     BLOCK: Divider
 ******************************/
 .inner-block--divider {
-    background-color: swatch('Neutral');
-    border-radius: 2px;
-    height: .25rem;
+    background-image: url('/wp-content/themes/hopeact/assets/dist/imgs/texture.png');
+    height: .5625rem;
     margin: 1.5rem 0;
-    max-width: 13.5rem;
-    width: 80%;
+    // max-width: 13.5rem;
+    // width: 80%;
     @include create-mq($md-width) {
-        max-width: 22.5rem ; //360
+        // max-width: 25.5rem ; //408
     }
-    span{
-        display: block;
-        height: .25rem;
-        transition: $t-default;
-        width: $block-padding;
-        @include create-mq($md-width) {
-            width: 7.5rem;
-        }
-        .card--clickable:hover &,
-        a:hover &{
-            width: 100%;
-        }
-    }
+    // span{
+    //     display: block;
+    //     height: .5rem;
+    //     transition: $t-default;
+    //     width: $block-padding;
+    //     @include create-mq($md-width) {
+    //         width: 100%;
+    //     }
+    //     .card--clickable:hover &,
+    //     a:hover &{
+    //         width: 100%;
+    //     }
+    // }
     &--narrow{
         width: 18rem ; //288
     }

@@ -75,18 +75,29 @@ if (!$label) {
     return;
 }
 
-$aria = str_replace('"',"'",$aria);
+$aria = str_replace('"', "'", $aria);
 
 ?>
 
-<?php /********** BUILD BUTTON HTML **********/
+<?php /**********
+       * BUILD BUTTON HTML 
+       **********/
 
 ?>
-<a data-atom="button" class="btn <?php echo $button['classes']; ?>" href="<?php echo $href; ?>" target="<?php echo $target; ?>" <?php if($aria):?>aria-label="<?php echo $aria; ?>"<?php endif;?> <?php echo isset($button['button_file']) && $button['button_file'] ? 'download' : ''; ?>>
-    <?php if ($button['button_style'] == 'arrow'):?>
-        <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-            <path d="M16 2L32 18L16 34" stroke="#FCFCFA" stroke-width="4"/>
-            <path d="M0 18H32" stroke="#FCFCFA" stroke-width="4"/>
+<a data-atom="button" class="btn <?php echo $button['classes']; ?>" href="<?php echo $href; ?>" target="<?php echo $target; ?>" <?php if($aria) :?>aria-label="<?php echo $aria; ?>"<?php 
+endif;?> <?php echo isset($button['button_file']) && $button['button_file'] ? 'download' : ''; ?>>
+<?php if ($button['button_style'] == 'arrow') :?>
+        <span>
+            <?php echo $label; ?>
+        </span>
+        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect width="31" height="20" fill="url(#pattern0_197_329)"/>
+            <defs>
+                <pattern id="pattern0_197_329" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_197_329" transform="matrix(0.00606061 0 0 0.00939394 0 -0.0166667)"/>
+                </pattern>
+                <image id="image0_197_329" width="165" height="110" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAABuCAYAAABGBNOtAAAACXBIWXMAAAsSAAALEgHS3X78AAAEBUlEQVR4nO3d3VFTURiF4fU53scOpAPogHQgHRgrECsAKxAqUCsQKiBUoHQQOoAKthebzKCELxxyzv59n0tImH2xZu0sBhILIQjTMLOjEMJF7nPU5k3uAzTu2Mz+mNlB7oPUhFBOb1/S0syOcx+kFoQyjZmkb2Z2YWbvch+mdIQyrQ+SVmY2z32QkhHK9GaSrszsLPdBSkUo8/nMCNqMUObFCNqAUObHCPoPoSwHI+gBoSwLI0iEslRdjyBCWa5uRxChLNt6BC17GkGEsg6HiiPoKPdBUiCU9ZhJ+mVmZ623JqGsz2fF15rNjiBCWad9Sb9bHUGEsm5NjiBCWb/mRhChbENTI4hQtqWJEUQo21P9CCKU7ap2BBHKtlU5gghl+6obQYSyH9WMIELZlypGEKHsU9EjiFD2q9gRRCj7th5BP0pqTUIJSfooqZj/CSKUWHuvOIJOcx+EUOJ/Jw8jaC/XAQglNjlUvM6zjCBCiedkG0GEEtskH0GEEi+RdAQRSgyRZAQRSgw1+QgilHiNSUcQocQuJhlBhBK7Gn0EEUqMZbQRRCgxplFGkEk6kNT12xlP6EBxFPTop6TjEMLd0CeapLmkq7FPBEi6lbQIISyHPInrG1N6r/jBAqdDnkQokcLJwwcL7L3kwYQSqewrjqDFtgcSSqQ0k/R926erEUrk8EGxNeebvkkokcuzI4hQIrcnI4hQogT/jCBCiVLMJC3M7B2hRCm+hhDmIYS7t7lPgu7dSjoKIfxZf4GmRE4/JR08DqQk0ZTI4V7xDzUuNn2TpkRq14rtuDGQEqFEWusxs/IexPWNFJ6MGQ9NialtHDMemhJTcceMh6bEFLaOGQ+hxNheNGY8XN8Yy6Ax46EpMYbBY8ZjkvYkLcb4YXhiofjHrK169ZjxWAhhzJ+HR8xsqfiuES26VgzkauwfzPWN1/iy65jxMHQwxI1iO47y2vE5NCVe6lzSfOpASjQltptkzHgIJTzXir97HPzOabvg+sZz1mMmaSAlmhJPJRkzHpoSjyUbMx6aElKGMeMhlMgyZjxc333LNmY8NGWfso8ZD03ZnyLGjIem7EdRY8ZDKPtQ3JjxcH237V6FjhkPTdmuoseMh6Zs03kIYbT/mUmNpmzLveJrx2Xug+yCpmzHpaS92gMpEcoWrMdMNet6G67vulU7Zjw0Zb2qHjMemrI+TYwZD01Zl2bGjIdQ1qG5MePh+i5fk2PGQ1OWrdkx46Epy9T8mPHQlOXpYsx4CGU5uhozHq7vMnQ3Zjw0ZX5fexwzHpoyn1vFdlzmPkhpaMo8LhXfuH6Z+yAlIpRp3Uv6xJjxcX2nc6P4u8dV7oOUjqZMYz1mVrkPUgOaclorSae8dhzmL0QJmlpoPXOfAAAAAElFTkSuQmCC"/>
+            </defs>
         </svg>
 
     <?php else:
@@ -107,7 +118,7 @@ $aria = str_replace('"',"'",$aria);
         </span>
 
         <?php // download arrow
-        if($button['button_type'] == 'file'):?>
+        if($button['button_type'] == 'file') :?>
             <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
                 <path d="M1 5.5L6 10.5L11 5.5" stroke="#1A1818" stroke-width="1.5"/>
                 <path d="M6 0.5V10.5" stroke="#1A1818" stroke-width="1.5"/>

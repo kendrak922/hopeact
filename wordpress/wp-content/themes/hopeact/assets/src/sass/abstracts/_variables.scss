@@ -39,7 +39,7 @@ $grid-gutter-props: (
 
 // Container elements
 
-$container-width: 55.5rem; // 744 = 46.5rem + 9rem (media)
+$container-width: 69rem; //960px + padding
 $container-width-wide: 84rem; // 1200px = 75rem + 9rem (non sidebar, programs)
 $container-ultra-wide: 99rem; // 1440px = 75rem + 9rem (non sidebar)
 $container-width-narrow: 49.5rem; // 648 = 40.5rem + 9rem (most content)
@@ -82,6 +82,7 @@ $color-tertiary: #FE9CD9;
 // Basics
 $color-black: #000000;
 $color-white: #FFF5F5;
+$color-neutral: #000000;
 
 $palette: (
 'Primary': $color-primary,
@@ -125,13 +126,13 @@ $font-weight-heavy: 900;
 
 // Font Stack
 $font-stack-primary: (
+  'Raleway',
+  sans-serif
+);
+$font-stack-secondary: (
   'Hepta Slab',
   'Helvetica',
   serif
-);
-$font-stack-secondary: (
-  'Outfit',
-  sans-serif
 );
 
 $font-stack-tertiary: $font-stack-primary;
@@ -214,10 +215,6 @@ $block-padding-mobile: 3rem; // 48
 
 $domain: (
   'local': 'hopeact.lndo.site',
-  'develop': 'hopeact.arts.gov.dev.l05.project-qa.com',
-  'staging': 'hopeact5.project-qa.com',
-  'maint': 'hopeact.arts.gov.cmr.m01.project-qa.com',
-  'production': 'hopeact.arts.gov',
 );
 
 //********************************

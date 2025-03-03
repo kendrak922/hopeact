@@ -16,7 +16,8 @@ $blocks_template = array(
 
 // BLOCK :: DATA
 $blockData = array(
-    'width' => get_field('width') ?? 'default'
+    'width' => get_field('width') ?? 'default',
+    'vertical-align' => get_field('formatting_vertical_align') ?? 'top',
 );
 
 // BLOCK :: CLASSES
@@ -27,6 +28,11 @@ $classes[] = 'container--'.$blockData['width'];
 if($block['align']){
     $classes[] = 'container--'.$block['align'];
 }
+
+if($block['align']){
+    $classes[] = 'container--'.$block['align'];
+}
+
 if ( ! empty( $block['className'] ) ) {
 	$classes = array_merge( $classes, explode( ' ', $block['className'] ) );
 }
@@ -37,11 +43,13 @@ if ( ! empty( $block['className'] ) ) {
 <?php if($block['align'] && $block['align'] != 'center'):?>
 <div class="container container--wide" >
 <?php endif?>
-<div id="<?php echo $blockID; ?>" class="inner-block <?php echo join( ' ', $classes ) ?>">
+<div id="<?php echo $blockID; ?>" class="inner-block <?php echo join( ' ', $classes ) ?>" data-align-y="<?php echo $blockData['vertical-align']; ?>" >
+
     <InnerBlocks 
         template="<?php echo esc_attr(wp_json_encode($blocks_template)); ?>" 
     />
 </div>
-<?php if($block['align'] && $block['align'] != 'center'):?>
+<?php if($block['align'] && $block['align'] != 'center') : ?>
+
 </div>
 <?php endif?>

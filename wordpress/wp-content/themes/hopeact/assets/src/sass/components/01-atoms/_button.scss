@@ -48,6 +48,7 @@ $btnWhite: (
 	text-decoration: none;
 	width: fit-content;
 	max-width: 100%;
+	text-decoration: none;
 }
 
 @mixin btn($button: $btnDefault) {
@@ -59,7 +60,7 @@ $btnWhite: (
 	color: map.get($button, 'textColor');
 	display: inline-flex;
 	font-family: $font-stack-secondary;
-	font-size: 1rem;
+	font-size: 1.25rem;
 	font-weight: $font-weight-medium;
 	gap:.5rem;
 	letter-spacing: kern(60);
@@ -195,58 +196,6 @@ $btnWhite: (
 			}
 		}
 	}
-
-	// .u-darkMode & {
-	// 	@include btnColors($btnWhite);
-	// 	box-shadow: none;
-	// 	text-align: left;
-	// 	&::after{
-	// 		background-color: swatch("Blue");
-	// 		bottom: 0;
-	// 		content: '';
-	// 		display: block;
-	// 		left: 0;
-	// 		position: absolute;
-	// 		top: 0;
-	// 		width: .25rem;
-	// 	}
-		
-	// 	.icon {
-	// 		@include icon.iconColor(icon.$iconDefault);
-	// 	}
-	// 	&:hover,
-	// 	&:focus {
-	// 		border-radius: 0.25rem;
-	// 		box-shadow: none;
-	// 		.icon {
-	// 			@include icon.iconColor(icon.$iconDark);
-	// 		}
-	// 		&::after{
-	// 			width: 100%;
-	// 		}
-	// 	}
-	// 	&:active {
-	// 		box-shadow: none;
-	// 		&::after{
-	// 			width: 100%;
-	// 			background-color: swatch("Neutral");
-	// 		}
-	// 	}
-	// }
-	// .u-bgColorBlue &,
-	// .u-bgColorGreen &,
-	// .u-bgColorRed &{
-	// 	&::after{
-	// 		background-color: swatch("White");
-	// 	}
-	// 	&:hover,
-	// 	&:focus{
-	// 		color: swatch("Neutral");
-	// 	}
-	// 	&:active{
-	// 		color: swatch("White");
-	// 	}
-	// }
 }
 
 /********************************
@@ -293,7 +242,7 @@ $btnSolidWhite: (
 
 .btn--solid,
 .btn--primary {
-
+		text-decoration: none;
 		@include btnColors($btnSolidDefault);
 		padding: 0.5rem 1rem 0.5rem;
 
@@ -315,33 +264,14 @@ $btnSolidWhite: (
 		}
 	}
 
-	.u-darkMode & {
-		@include btnColors($btnSolidWhite);
-		.icon {
-			@include icon.iconColor(icon.$iconDefault);
-		}
-		&:hover {
-			.icon {
-				@include icon.iconColor(icon.$iconDark);
-			}
-		}
-	}
-}
 
+}
+.u-darkMode a.btn:hover {
+	color: $color-white;
+}
 .btn--secondary {
 	@include btnColors($btnSolidSecondary);
 	padding: 0.5rem 1rem 0.5rem;
-	.u-darkMode & {
-		@include btnColors($btnSolidSecondary);
-		.icon {
-			@include icon.iconColor(icon.$iconDefault);
-		}
-		&:hover {
-			.icon {
-				@include icon.iconColor(icon.$iconDark);
-			}
-		}
-	}
 }
 
 /********************************
@@ -455,10 +385,14 @@ $btnArrowDark: (
 	line-height: unset;
 	min-height: unset;
 	padding: 0;
+	padding-left: 0!important;
 	text-align: unset;
+	text-underline-offset: 8px;
+	font-weight: $font-weight-medium;
 	text-decoration: underline;
 	&:hover{
 		overflow: visible;
+
 	}
 
 	svg {
@@ -522,7 +456,7 @@ $btnArrowDark: (
 .btn--small,
 .btn[data-size='small'] {
 	@include create-mq($md-width) {
-		font-size: typeScaleMinus(1);
+		font-size: typeScalePlus(2);
 		line-height: 1.2;
 		padding: 0.75rem 1.25rem;
 	}
@@ -531,7 +465,7 @@ $btnArrowDark: (
 .btn--medium,
 .btn[data-size='medium'] {
 	@include create-mq($md-width) {
-		font-size: $font-base;
+		font-size: typeScalePlus(2);
 		line-height: 1.2;
 		padding: 1rem 1.5rem 0.75rem;
 		.icon {
@@ -543,7 +477,7 @@ $btnArrowDark: (
 .btn--large,
 .btn[data-size='large'] {
 	@include create-mq($md-width) {
-		font-size: typeScalePlus(1);
+		font-size: typeScalePlus(2);
 		line-height: 1.2;
 		padding: 1.25rem 2rem 1rem;
 		.icon {

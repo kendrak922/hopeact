@@ -33,9 +33,13 @@ For info on using the Terraform templates, see the [Terraform README](terraform/
 ### Theme Setup
 - import ACF fields
 - add colors to admin-styles.css, variables, dev guide, and style guide.
+- Update native wordpress variables in theme.json
 - convert fonts: https://transfonter.org/, add font faces, assign primary and secondary fonts
 - Check global elements like buttons
 
 
 ### Plugins
 - ACF
+
+todo---
+figure out columns and sections

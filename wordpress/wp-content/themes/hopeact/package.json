@@ -41,11 +41,6 @@
     "ie >= 10",
     "defaults"
   ],
-  "author": "fjorge",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://the-ljibrary.fjorgedigital.com/books/technology-standard-gulp/page/gulp-issues"
-  },
   "dependencies": {
     "bootstrap": "^5.2.1"
   }

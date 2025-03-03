@@ -29,31 +29,31 @@
           "size": "1rem"
         },
         {
-          "name": "Large (18)",
+          "name": "Large (20)",
           "slug": "large",
-          "size": "1.125rem"
-        },
-        {
-          "name": "XL (20)",
-          "slug": "xlarge",
           "size": "1.25rem"
         },
         {
-          "name": "XXL (24)",
-          "slug": "xxlarge",
+          "name": "XL (24)",
+          "slug": "xlarge",
           "size": "1.5rem"
+        },
+        {
+          "name": "XXL (32)",
+          "slug": "xxlarge",
+          "size": "2rem"
         }
       ],
       "fontFamilies": [
         {
-          "fontFamily": "Lyon Text",
-          "name": "Lyon Text",
-          "slug": "lyon-text"
+          "fontFamily": "Hepta Slab",
+          "name": "Hepta Slab",
+          "slug": "hepta-slab"
         },
         {
-          "fontFamily": "ABC Diatype",
-          "name": "ABC Diatype",
-          "slug": "ABC-Diatype"
+          "fontFamily": "Raleway",
+          "name": "Raleway",
+          "slug": "Raleway"
         }
       ]
     },
@@ -80,14 +80,9 @@
           "background": true
         }
       },
-      "acf/program-card": {
-        "color": {
-          "background": true
-        }
-      },
       "core/quote": {
         "typography": {
-          "fontWeight": false,
+          "fontWeight": true,
           "fontSizes": [],
           "fontFamilies": []
         }
@@ -114,7 +109,7 @@
             {
               "name": "XL (h2)",
               "slug": "h2",
-              "size": "3.75rem"
+              "size": "3rem"
             },
             {
               "name": "XXL (h1)",

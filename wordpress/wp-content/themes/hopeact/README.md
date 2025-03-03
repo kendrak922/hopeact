@@ -67,7 +67,6 @@ If you need to add another stylesheet or script, add it to the `theme_enqueue_as
 ### Gulp
 
 - This theme uses gulp to watch and compile source files into distribution files for the browser.
-- For more details on how Gulp is being used, review the [Gulp Book](https://the-ljibrary.fjorgedigital.com/books/gulp/chapter/gulp-4x-%28current%29) in the Ljibrary
 
 ### CSS
 
@@ -81,7 +80,7 @@ There's a Gulp file setup to compile sass files. In terminal, if you open the th
 
 #### SASS Partials
 
-This theme uses the most up to date method of using partials in Sass, [Sass Modules](https://sass-lang.com/blog/the-module-system-is-launched). You will find Sass members included with [@use](https://sass-lang.com/documentation/at-rules/use) and [@forward](https://sass-lang.com/documentation/at-rules/forward) rules instead of@use rules. When creating and using new Sass members, Be aware that the @use and @forward at-rules don't make members globally available the same way@use does. Read more about Sass Modules in [the ljibrary documentation](https://the-ljibrary.fjorgedigital.com/books/cssscss/page/learning-sass).
+This theme uses the most up to date method of using partials in Sass, [Sass Modules](https://sass-lang.com/blog/the-module-system-is-launched). You will find Sass members included with [@use](https://sass-lang.com/documentation/at-rules/use) and [@forward](https://sass-lang.com/documentation/at-rules/forward) rules instead of@use rules. When creating and using new Sass members, Be aware that the @use and @forward at-rules don't make members globally available the same way@use does.
 
 #### SASS Variables
 

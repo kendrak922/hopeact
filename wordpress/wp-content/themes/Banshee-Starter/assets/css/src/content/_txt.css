@@ -97,3 +97,20 @@
 .txt--lowercase { text-transform: lowercase !important; }
 .txt--transformNone { text-transform: none !important; }
 .txt--underline { text-decoration: underline !important; }
+
+
+
+h2 {
+    font-size: var(--txt-3xl);
+}
+
+h3 {
+    font-size: var(--txt-lg);
+}
+
+h2.wp-block-heading.has-text-align-center {
+    margin: 50px auto 100px;
+    max-width: 1280px;
+    padding: 0 20px;
+    text-align: center;
+}

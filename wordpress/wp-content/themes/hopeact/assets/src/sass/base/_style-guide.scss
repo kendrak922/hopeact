@@ -153,6 +153,14 @@ figure{
     max-width: fit-content;
     margin: 0 auto;
   }
+  &.figure--left{
+    max-width: fit-content;
+    margin-right:auto;
+  }
+  &.figure--right{
+    max-width: fit-content;
+    margin-left: auto;
+  }
 }
 figcaption{
   border-left: 1px solid swatch("Neutral");

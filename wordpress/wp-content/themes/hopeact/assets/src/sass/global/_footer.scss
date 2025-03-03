@@ -6,32 +6,22 @@
 
 
 
-.social{
-    &__head{
-        margin-bottom: 1.5rem;
+.social {
+    &__head {
+        margin-bottom: 1rem;
         line-height: 1;
     }
-    &__links{
-        align-items: center;
-        display: flex;
-        gap: 1.5rem;
-        list-style: none;
-        margin:1.5rem 0 0;
-        padding:0;
-        @include create-mq($sm-width) {
-            gap: 2rem;
-        }
-        li{
-            margin:0;
-            padding:0;
-            svg{
-                display: block;
-            }
-            .icon__new-tab{
-                display: none;
-            }
+
+    nav {
+        @include font.smallNav(); 
+    }
+    a {
+        text-decoration: none;
+        .icon__new-tab {
+            display: none;
         }
     }
+
 }
 
 // /********************************
@@ -39,80 +29,107 @@
 // ********************************/
 .footer {
     font-family: $font-stack-primary;
-    font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.2em;
-    padding: 1.25rem 0 1.5rem;
-    @include create-mq($md-width) {
-        padding: 3rem 0;
-    }
-    @include create-mq($lg-width) {
-        padding: 4.125rem 0; //72 4.5
-    }
+    margin-top: 100px;
 
     //
     // * Logo
     //
     &__logo {
-        display: block;
-        width: 270px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+
+        img {
+            display: block;
+            width: 270px;
+            margin-top: 40px;
+        }
     }
+
+    
+
     //
     // * Main - menu and logo
     //
-    &__content {
-        position: relative;
-        .nav--utility-footer{
-            border-bottom: swatch("Gray") solid 1px;
-            border-top: swatch("Gray") solid 1px;
-            padding: 1.5rem 0;
+    &__main {
+        padding: 1.25rem 0 1.5rem;
+
+        @include create-mq($md-width) {
+            padding: 3rem 0;
         }
-    }
-    // * Bottom - social/text
-    &__bottom {
-        padding-top: 2.5rem;
-        @include font.smallNavLines();
-        .footer__content{
+
+        @include create-mq($lg-width) {
+            padding: 4.125rem 0; //72 4.5
+        }
+
+        >.container {
             display: flex;
             justify-content: space-between;
-            flex-direction: column;
-            @include create-mq($md-width) {
-                flex-direction: row;
-            }
         }
-        .footer__description{
-            max-width: 22rem;
-            padding-bottom: 2.5rem;
-            @include create-mq($md-width) {
-                padding: unset;
-            }
+    }
+
+    &__content {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    &__description {
+        max-width: 22rem;
+        padding-bottom: 2.5rem;
+        grid-area: 1 / 1 / 2 / 3;
+        font-family: $font-stack-secondary;
+
+        @include create-mq($md-width) {
+            padding: unset;
         }
-        .footer__social{
-            border-top: swatch("Gray") solid 1px;
+    }
+
+&__attribute {
+    margin-top: 60px;
+    grid-column: 1 / span 2;
+    align-self: center;
+    margin-right: 20px;
+    line-height: 150%;
+    @include create-mq($md-width) {
+       margin-right: 0;
+    }
+}
+
+
+    // * Bottom - social/text
+
+
+    &__social {
+        grid-area: 2 / 1 / 3 / 2;
+
+        @include create-mq($md-width) {
             padding-top: 2.5rem;
-            @include create-mq($md-width) {
-                border: none;
-                padding: unset;
-            }
-            li:hover{
-                svg{
-                    path{
-                        fill: swatch("Blue")
-                    }
+            border: none;
+            padding: unset;
+        }
+
+        li:hover {
+            svg {
+                path {
+                    fill: swatch("Blue")
                 }
             }
         }
+
     }
 
     //
     // * Menu
     //
     &__nav--wrapper {
-        @include create-mq($md-width) {
-            gap: rem(6);
-            justify-content: flex-start;
-            margin-left: auto;
-        }
+        grid-area: 2 / 2 / 3 / 3;
 
         .nav--footer {
             a {
@@ -120,4 +137,6 @@
             }
         }
     }
-} // close: footer.footer
+}
+
+// close: footer.footer

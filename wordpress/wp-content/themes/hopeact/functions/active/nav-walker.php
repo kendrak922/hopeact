@@ -225,7 +225,7 @@ class hopeact_nav_walker_footer extends Walker_Nav_menu{
 
     $item_output  = $args->before;
     $item_output .= '<a' . $attributes . '>';
-    $item_output .= $depth ==0 ? '<h2>' . $title . '</h2>' : $args->link_before . $title . $args->link_after;
+    $item_output .=  $title;
     $item_output .= '</a>';
     $item_output .= $args->after;
 

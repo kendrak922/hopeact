@@ -1,7 +1,5 @@
 "use strict";
 
-// Questions? Visit our documentation: https://the-ljibrary.fjorgedigital.com/books/technology-standard-gulp
-
 /****************************************
     DEPENDENCIES
 *****************************************/

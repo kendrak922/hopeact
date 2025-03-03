@@ -27,7 +27,8 @@
     @include create-mq($md-width) {
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 4.5rem;
+        align-content: center;
+        gap: 10rem;
         &.content-entry--reverse{
             flex-direction: row-reverse;
         }
@@ -47,10 +48,11 @@
 
     &__title{
         text-decoration: none;
+        color: swatch("Neutral");
         &:active,
         &:focus,
         &:hover{
-            // color: swatch("Neutral");
+            color: swatch("Neutral");
             & + .inner-block--divider{
                 span{
                     width: 100%;
@@ -60,7 +62,6 @@
     }
 
     img{
-        aspect-ratio: 1.5;
         object-fit: cover;
         object-position: center 10%;
         width: 100%;
@@ -78,10 +79,9 @@
     &+.content-entry{
         margin-top: 2rem; //32
         padding-top: 2rem; //32
-        border-top: .5px swatch("Neutral") solid;
         @include create-mq($md-width) {
-            margin-top: 3rem; //48
-            padding-top: 3rem; //48
+            margin-top: 6rem; //96
+            padding-top: 6rem; //96
         }
     }
 }

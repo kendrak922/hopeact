@@ -4,7 +4,6 @@
  * Block: Accordion + Tabs 
  * - Slug: accordion-tabs 
  * - Admin name: Accordion Tabs
- * - Demo: https://fjorge-wp-starter.l05.project-qa.com/starter-block-accordion-tabs/
  */
 
 // Global Variables

@@ -6,9 +6,7 @@
 ********************************/
 
 .header {
-    font-family: $font-stack-secondary;
-    font-size: rem(33);
-    font-weight: 500;
+    font-size: rem(25);
     height: calc(map.get($headerHeight, 'sm'));
     position: relative;
     transition: height 0.2s ease-in-out;
@@ -22,8 +20,6 @@
         position: fixed;
         width: 100%;
         z-index: 99999;
-        border-bottom: .5px #B3B3B3 solid;
-        box-shadow: 0px 0.25rem 1.5rem rgba(0, 0, 0, 0.05);
         &.animate {
             transition: top 0.6s ease-in-out;
         }
@@ -32,7 +28,7 @@
     // logo
     &__logo {
         height: auto;
-        img{
+        img {
             height: 2.5rem;
             width: auto;
             object-fit: contain;
@@ -104,5 +100,11 @@
                 }
             }
         }
+    }
+
+    .btn--primary {
+        width: 200px;
+        padding: 20px 16px;
+        text-align: center;
     }
 }

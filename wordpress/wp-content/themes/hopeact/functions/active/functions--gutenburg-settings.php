@@ -1,24 +1,24 @@
 <?php
 //by template
-// function restrict_blocks_by_template($allowed_blocks, $post) {
-//     // Get the current page template
-//     $template = get_page_template_slug($post->ID);
+function restrict_blocks_by_template($allowed_blocks, $post) {
+    // Get the current page template
+    $template = get_page_template_slug($post->ID);
 
-//     // Define the template for which you want to restrict blocks
-//     $restricted_template = 'your-template-name.php';
+    // Define the template for which you want to restrict blocks
+    $restricted_template = 'page.php';
 
-//     if ($template === $restricted_template) {
-//         // List the block names that you want to allow
-//         $allowed_blocks = array(
-//             'core/paragraph',
-//             'core/image',
-//             // Add more allowed block names here
-//         );
-//     }
+    if ($template === $restricted_template) {
+        // List the block names that you want to allow
+        $allowed_blocks = array(
+            'core/paragraph',
+            'core/image',
+            // Add more allowed block names here
+        );
+    }
 
-//     return $allowed_blocks;
-// }
-// add_filter('allowed_block_types', 'restrict_blocks_by_template', 10, 2);
+    return $allowed_blocks;
+}
+add_filter('allowed_block_types', 'restrict_blocks_by_template', 10, 2);
 
 //by post type
 // function restrict_blocks_by_post_type($allowed_blocks, $post) {
@@ -65,12 +65,12 @@ add_theme_support( 'editor-color-palette', array(
     array(
         'name'  => esc_attr__( 'white', 'themeLangDomain' ),
         'slug'  => 'white',
-        'color' => '#FCFCFA',
+        'color' => '#FFF5F5',
     ),
     array(
         'name'  => esc_attr__( 'black', 'themeLangDomain' ),
         'slug'  => 'black',
-        'color' => '#1A1818',
+        'color' => '#000000',
     ),
     array(
         'name'  => esc_attr__( 'light gray', 'themeLangDomain' ),
@@ -80,38 +80,28 @@ add_theme_support( 'editor-color-palette', array(
      array(
         'name'  => esc_attr__( 'brand: blue', 'themeLangDomain' ),
         'slug'  => 'blue',
-        'color' => '#006BD6',
+        'color' => '#0968FA',
     ),
      array(
-        'name'  => esc_attr__( 'brand: red', 'themeLangDomain' ),
-        'slug'  => 'red',
-        'color' => '#D61609',
+        'name'  => esc_attr__( 'brand: orange', 'themeLangDomain' ),
+        'slug'  => 'orange',
+        'color' => '#DE541E',
     ),
      array(
         'name'  => esc_attr__( 'yellow', 'themeLangDomain' ),
         'slug'  => 'yellow',
-        'color' => '#FAB223',
+        'color' => '#FBDC43',
     ),
      array(
         'name'  => esc_attr__( 'green', 'themeLangDomain' ),
         'slug'  => 'green',
-        'color' => '#244D1C',
+        'color' => '#44AF69',
     ),
      array(
-        'name'  => esc_attr__( 'purple', 'themeLangDomain' ),
-        'slug'  => 'purple',
-        'color' => '#C9ABE0',
-    ),
-     array(
-        'name'  => esc_attr__( 'navy', 'themeLangDomain' ),
-        'slug'  => 'navy',
-        'color' => '#233D7D',
-    ),
-     array(
-        'name'  => esc_attr__( 'tan', 'themeLangDomain' ),
-        'slug'  => 'tan',
-        'color' => '#E0CA9D',
-    ),
+        'name'  => esc_attr__( 'pink', 'themeLangDomain' ),
+        'slug'  => 'pink',
+        'color' => '#FE9CD9',
+    )
 ) );
 
 

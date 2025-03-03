@@ -67,7 +67,7 @@ $id = get_queried_object_id();
         </div>
         <div class="about__body">
           <h2>Meet Your Coder!</h2>
-          <p>Custom web developer based in Minneapolis, Minnesota. Reluctant professional, passionate creator. A coding nerd with a soft spot for cats, grilled cheese, and star sign chats.</p>
+          <p>Custom web developer based in Minneapolis, Minnesota. I’m an entrepreneurial problem-solver, a passionate creator, and a coding enthusiast with a love for cats, grilled cheese sandwiches, and conversations about star signs.</p>
           <p>I specialize in working with small businesses, creatives, and down-to-earth, cool people. I get it—websites are often the least favorite part of the job. Maybe tech isn’t your thing, or you’ve had a less-than-stellar experience with an agency in the past. Whatever the case, I’m here to make it better.</p>
           <p>Let me handle the digital side of things so you can focus on what you love. Building websites is my passion—let’s make it work for you.</p>
         </div>
@@ -90,11 +90,9 @@ $id = get_queried_object_id();
                 I oversaw projects to develop custom WordPress websites,
                 harmonizing user experiences with captivating designs. I
                 converted design concepts into responsive HTML, CSS, and
-                JavaScript code for optimal performance across devices.
-                Collaborating with cross-functional teams, I ensured cohesive
-                project execution. Acting as the primary client liaison, I
-                defined project scopes and maintained clear communication
-                throughout.
+                JavaScript code for optimal performance across devices. 
+                At fjorge I learned how to code defensively so that my programs
+                would be able to withstand the changing landscape of technology for years to come. 
               </li>
             </ul>
           </div>
@@ -102,12 +100,11 @@ $id = get_queried_object_id();
             <h3>Trinity Insight | 2021 - 2022</h3>
             <ul>
               <li>
-                Built extensive eCommerce websites on platforms including
+                Here I built extensive eCommerce websites on platforms like
                 Wordpress, Shopify, and BigCommerce, prioritizing performance,
-                accessibility, and maintainability. Integrated custom Google
+                accessibility, and maintainability. I also integrated custom Google
                 Analytics events to monitor user interactions on client
-                websites. Conducted A/B tests incorporating UX best practices
-                and client input.
+                websites and conducted A/B tests incorporating UX best practices.
               </li>
             </ul>
           </div>

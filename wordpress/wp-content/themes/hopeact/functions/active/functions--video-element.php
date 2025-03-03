@@ -32,7 +32,7 @@
  * echo hopeact_video($data);
  */
 
-if (!function_exists('hopeact
+if (!function_exists('hopeact_video')){
     function hopeact_video($data)
     {
         if (isset($data['video_element']) && $data['video_element']) { // the name of the field group that is inside of item_content group

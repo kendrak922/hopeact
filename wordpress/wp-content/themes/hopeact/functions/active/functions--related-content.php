@@ -1,5 +1,5 @@
 <?php
-//convert to resource-listing array
+//convert to story-listing array
 function relatedFromQuery($postTypes, $posts_per_page = 3, $tags=[], $audience=[], $filterImpact=[], $filterNews=[], $filterResource=[], $filterResearch=[]){
     $result = [];
     $args = array(

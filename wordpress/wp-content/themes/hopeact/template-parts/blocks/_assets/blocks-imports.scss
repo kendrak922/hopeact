@@ -5,22 +5,14 @@
 
 // Blocks
 @use '_blocks-global';
-// @use '../featured-content-cover/featured-content-cover';
 @use '../hero-banner/hero-banner';
-@use '../hero-block/hero-block';
-// @use '../news-listing-filter/news-listing-filter';
 @use '../section/section';
 
 // // Inner blocks
-@use '../_innerBlock/accordion/accordion';
 @use '../_innerBlock/buttons/buttons';
+@use '../_innerBlock/content-stacks/content-stacks';
 @use '../_innerBlock/container/container';
 @use '../_innerBlock/divider/divider';
 @use '../_innerBlock/image-gallery/image-gallery';
-@use '../_innerBlock/map/map';
-@use '../_innerBlock/location-listing/location-listing';
-@use '../_innerBlock/program-card/program-card';
-@use '../_innerBlock/related-content/related-content';
 @use '../_innerBlock/share/share';
-@use '../_innerBlock/team-listing/team-listing';
 @use '../_innerBlock/file-grid/file-grid';

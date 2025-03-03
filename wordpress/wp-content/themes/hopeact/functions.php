@@ -82,7 +82,6 @@ function theme_enqueue_assets()
         'scripts_blocks' => array('jquery'),
     ];
 
-
     /********** ENQUEUE ASSETS **********/
 
     /*** Vendor Styles ***/
@@ -225,9 +224,9 @@ function theme_register_menus()
     register_nav_menus(
         array(
             'main-menu' => __('Main Menu'),
-            'utility-menu' => __('Utility Menu'),
+            // 'utility-menu' => __('Utility Menu'),
             'footer-menu' => __('Footer Menu'),
-            'footer-menu2' => __('Footer Menu 2'),
+            // 'footer-menu2' => __('Footer Menu 2'),
         )
     );
 }

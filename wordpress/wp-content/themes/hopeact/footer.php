@@ -16,19 +16,12 @@ $footerData = [
         'menu_class'        => 'menu menu--footer',
         'walker'            => new hopeact_nav_walker_footer()
     ],
-    'nav2'        => [
-        'theme_location'    => 'footer-menu2',
-        'depth'                => 2,
-        'menu_class'        => 'menu menu--footer2',
-    ],
 ];
 
-$facebook = get_field("facebook", 'option');
-$bluesky = get_field("bluesky", 'option');
-$twitter = get_field("twitter", 'option');
-$instagram = get_field("instagram", 'option');
-$linkedin = get_field("linkedin", 'option');
-$youtube = get_field("youtube", 'option');
+$button = get_field('button', 'options')['button'];
+// $social_links = get_field('socials', 'options');
+$footer_graphic = get_field('global_imagery', 'options')['footer_graphic'];
+$socials = get_field('socials', 'options');
 ?>
 
 <?php /*****
@@ -39,6 +32,12 @@ $youtube = get_field("youtube", 'option');
 ?>
 
 <footer id="footer" class="footer <?php echo $args && $args['hasSidebar']?'has-sidebar':'';?> u-darkMode u-bgColorBlack">
+<?php if(!empty($footer_graphic)) : ?>
+    <div class="footer__graphic">
+
+        <img src="<?php echo $footer_graphic['url'];?>" />
+    </div>
+<?php endif; ?>
     <?php /*****
            * FOOTER MAIN 
            ******/ ?>
@@ -46,105 +45,55 @@ $youtube = get_field("youtube", 'option');
         <div class="container container--ultra-wide">
 
             <div class="footer__content">
-				<div class="footer__logo">
-
-				<?php if (get_field('footer_logo', 'options')) : $logo = get_field('footer_logo', 'options'); ?>
-                                        <img src="<?php echo $logo['url']; ?>" alt="Hope Act Logo">
-                                    <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo-white.png')) : ?>
-                                        <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-white.png" alt="Hope Act Logo" class="u-hidden u-lg-block" />
-                                        <img src=" <?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-white-sm.png" alt="Hope Act Logos" class="u-lg-hidden" />
-                                    <?php else : ?>
-                                        <strong><?php echo bloginfo('title'); ?></strong>
-                <?php endif; ?>
-				</div>
-                <div class="footer__attribute">
-                    Website by <a href="https://bansheestud.io">Banshee Studio</a>
-                    <?php echo date('Y'); ?> All Rights Reserved.
+                <div class="footer__description">
+                    <h2 class="u-textColorSecondary h2"><?php echo get_field("footer_text", 'option');?></h2>
                 </div>
                 <?php /* Footer Menu */ ?>
-                <div class="footer__menus">
-                    <div class="footer__menu">
-                        <div class="footer__social social">
-                            <div class="social__head">
-                                Social
+               <?php if($socials) : ?>
+                            <div class="footer__social social">
+                                    <div class="social__head text-xs text-base u-textWeightBold ">
+                                        Social
+                                </div>
+                                <nav class="menu--footer-social" aria-label="Social Media Menu">
+                                    <?php foreach($socials as $social) : ?>
+                                            <?php 
+                                                $link = $social['social_link'];
+                                                $title = $social['social_title'];
+                                            
+                                            ?>
+                                            <a href="<?php echo $link; ?>" target="_blank">
+                                                <?php echo $title; ?>
+                                            </a>
+                                    <?php endforeach;?>
+                                </nav>
                             </div>
-                    <nav class="nav--social" aria-label="Social Media Menu">
-                        <ul class="social__links">
-                            <?php if($facebook) :?>
-                                <li>
-                                    <a href="<?php echo $facebook;?>" target="_blank">
-                                    facebook
-                                <?php echo GetIconMarkup('icon-social-facebook-white'); ?>
-                                    </a>
-                                </li>
-                            <?php endif;?>
-                            <?php if($bluesky) :?>
-                                <li>
-                                    <a href="<?php echo $bluesky;?>" target="_blank">
-                                    bluesky
-                                <?php echo GetIconMarkup('icon-social-facebook-white'); ?>
-                                    </a>
-                                </li>
-                            <?php endif;?>
-                            <?php if($twitter) :?>
-                                <li>
-                                    <a href="<?php echo $twitter;?>" target="_blank">
-                                <?php echo GetIconMarkup('icon-social-twitter-white'); ?>
-                                    x
-                                    </a>
-                                </li>
-                            <?php endif;?>
-                            <?php if($instagram) :?>
-                                <li>
-                                    <a href="<?php echo $instagram;?>" target="_blank">
-                                <?php echo GetIconMarkup('icon-social-instagram-white'); ?>
-                                        instagram
-                                    </a>
-                                </li>
-                            <?php endif;?>
-                            <?php if($linkedin) :?>
-                                <li>
-                                    <a href="<?php echo $linkedin;?>" target="_blank">
-                                <?php echo GetIconMarkup('icon-social-linkedin-white'); ?>
-                                linkedin
-                                    </a>
-                                </li>
-                            <?php endif;?>
-                            <?php if($youtube) :?>
-                                <li>
-                                    <a href="<?php echo $youtube;?>" target="_blank">
-                                <?php echo GetIconMarkup('icon-social-youtube-white'); ?>
-                                    youtube
-                                    </a>
-                                </li>
-                            <?php endif;?>
-                        </ul>
-                    </nav>
+               <?php endif; ?>
+                <nav class="menu--footer footer__nav-wrapper" aria-label="Footer Menu">
+                                <?php
+                                wp_nav_menu($footerData['nav']);
+                                ?>
+                            </nav>
+               <div class="footer__attribute text-xs">
+                    Website by <a href="https://bansheestud.io">Banshee Studio</a><br>
+                    <?php echo date('Y'); ?> All Rights Reserved.
                 </div>
-
-                    </div>
-                    <nav class="nav--footer" aria-label="Footer Menu">
-                        <?php
-                        wp_nav_menu($footerData['nav']);
-                        ?>
-                    </nav>
-                </div>
-            
             </div>
             <!--.footer__content--wrapper-->
-
-        </div>
-    </section>
-
-    <?php /*****
-           * FOOTER BOTTOM / COPYRIGHT 
-           ******/ ?>
-    <section class="footer__bottom">
-        <div class="container container--ultra-wide">
-            <div class="footer__content">
-                <div class="footer__description">
-                    <?php echo get_field("footer_text", 'option');?>
-                </div>
+            <div class="footer__logo">
+           <?php  
+                    Load::atom(
+                        'button/button',
+                        [
+                            'button' => $button,
+                        ]
+                    );
+                ?>
+                <?php if (get_field('footer_logo', 'options')) : $logo = get_field('footer_logo', 'options'); ?>
+                        <img src="<?php echo $logo['url']; ?>" alt="Hope Act Logo">
+                <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo-white.png')) : ?>
+                        <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-white.png" alt="Hope Act Logo" class="u-lg-block" />                <?php else : ?>
+                        <strong><?php echo bloginfo('title'); ?></strong>
+                <?php endif; ?>
             </div>
         </div>
     </section>

@@ -117,10 +117,16 @@ $btnWhite: (
 		color: map.get($button, 'hoverTextColor');
 		background-color: map.get($button, 'hoverBgColor');
 		box-shadow: inset 0 0 0 1px map.get($button, 'hoverBorderColor'); // inset border
+		svg {
+			filter: invert(32%) sepia(45%) saturate(7500%) hue-rotate(211deg) brightness(100%) contrast(97%);
+		}
 	}
 	&:active {
 		background-color: map.get($button, 'activeBgColor');
 		box-shadow: inset 0 0 0 1px map.get($button, 'activeBorderColor'); // inset border
+		svg {
+			filter: invert(32%) sepia(45%) saturate(7500%) hue-rotate(211deg) brightness(100%) contrast(97%);
+		}
 	}
 	a {
 		color: map.get($button, 'textColor');
@@ -130,6 +136,9 @@ $btnWhite: (
 			color: map.get($button, 'hoverTextColor');
 			background-color: map.get($button, 'hoverBgColor');
 			box-shadow: inset 0 0 0 1px map.get($button, 'hoverBorderColor'); // inset border
+			svg {
+				filter: invert(32%) sepia(45%) saturate(7500%) hue-rotate(211deg) brightness(100%) contrast(97%);
+			}
 		}
 	}
 }
@@ -400,10 +409,6 @@ $btnArrowDark: (
 	svg {
 		height: 2rem;
 		width: 2rem;
-		@include create-mq($md-width) {
-			height: 2rem;
-			width: 2rem;
-		}
 	}
 	@include create-mq($md-width) {
 		gap: 0.75rem;

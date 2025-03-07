@@ -58,7 +58,9 @@ $storylisting[] = storiesFromQuery()
                         <div class="text-xl">
                             <?php echo $story['description'];?>
                             <?php if($story['accent_image']) :?>
-                                <?php echo wp_get_attachment_image($story['accent_image']['id'],'medium', '', array('class' => 'lazyload') ); ?>
+                                <div class="accent-image">
+                                    <?php echo wp_get_attachment_image($story['accent_image']['id'],'medium', '', array('class' => 'lazyload') ); ?>
+                                </div>
                             <?php endif;?>
                         </div>
                     <?php endif;?>

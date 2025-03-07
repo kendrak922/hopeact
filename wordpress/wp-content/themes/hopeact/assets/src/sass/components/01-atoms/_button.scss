@@ -104,6 +104,7 @@ $btnWhite: (
 
 @mixin btnColors($button: $btnDefault) {
 	background-color: map.get($button, 'bgColor');
+	border-bottom: solid map.get($button, 'borderColor'); 
 	box-shadow: inset 0 0 0 1px map.get($button, 'borderColor'); // inset border
 	color: map.get($button, 'textColor');
 	&::after{
@@ -387,9 +388,10 @@ $btnArrowDark: (
 	padding: 0;
 	padding-left: 0!important;
 	text-align: unset;
-	text-underline-offset: 8px;
 	font-weight: $font-weight-medium;
 	text-decoration: underline;
+	text-underline-offset: 6px;
+	text-decoration-thickness: 2px;
 	&:hover{
 		overflow: visible;
 

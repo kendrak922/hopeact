@@ -2,7 +2,6 @@
 
 For info on the site theme, see the [Theme README](wordpress/wp-content/themes/hopeact/README.md).
 
-For info on using the Terraform templates, see the [Terraform README](terraform/README.md).
 
 ## General Information
 

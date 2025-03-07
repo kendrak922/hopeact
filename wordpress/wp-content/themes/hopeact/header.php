@@ -47,7 +47,12 @@ if ($header_button_link) {
     <meta name="viewport" content="width=device-width" />
     <meta name="format-detection" content="telephone=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+        <link rel="apple-touch-icon" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="512x512"  href="<?php echo $themeGlobals['theme_url']; ?>/favicons/android-chrome-512x512.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $themeGlobals['theme_url']; ?>/favicons/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/favicon-16x16.png">
+        <link rel="manifest" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/manifest.json">
     <title><?php wp_title(''); ?></title>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -61,21 +66,6 @@ if ($header_button_link) {
     <?php if (is_singular() && get_option('thread_comments')) { wp_enqueue_script('comment-reply');
     } ?>
     <?php wp_head(); ?>
-
-    <!-- START: FAVICON -->
-    <?php
-    // PASTE FAVICON LINKS HERE (Remove this PHP comment after)
-    // Favicon Generator: https://www.favicon-generator.org/ 
-    ?>
-    <!-- END: FAVICON -->
-
-    <!-- START: GOOGLE ANALYTICS -->
-    <?php // PASTE GOOGLE ANALYTICS SNIPPET HERE (Remove this PHP comment after) 
-    ?>
-    <!-- END: GOOGLE ANALYTICS -->
-
-    <!-- START: BUGHERD -->
-    <!-- END: BUGHERD -->
 </head>
 
 <body <?php body_class(); ?> data-environment="<?php echo $environment; ?>">

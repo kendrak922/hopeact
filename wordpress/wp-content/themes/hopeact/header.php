@@ -58,9 +58,7 @@ if ($header_button_link) {
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <meta name="statuscake" />
 
-    <!-- START: PreLoad FontAwesome -->
-    <link rel="stylesheet" href="https://kit.fontawesome.com/9314b03d12.css" crossorigin="anonymous">
-    <!-- END: PreLoad FontAwesome -->
+
 
     <!-- add additional scripts and stylesheets to my_add_theme_scripts() in functions.php -->
     <?php if (is_singular() && get_option('thread_comments')) { wp_enqueue_script('comment-reply');

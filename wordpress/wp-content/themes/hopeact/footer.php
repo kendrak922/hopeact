@@ -18,7 +18,7 @@ $footerData = [
     ],
 ];
 
-$button = get_field('button', 'options')['button'];
+$button = get_field('button', 'options');
 // $social_links = get_field('socials', 'options');
 $footer_graphic = get_field('global_imagery', 'options')['footer_graphic'];
 $socials = get_field('socials', 'options');
@@ -80,20 +80,22 @@ $socials = get_field('socials', 'options');
             </div>
             <!--.footer__content--wrapper-->
             <div class="footer__logo">
-           <?php  
-                    Load::atom(
-                        'button/button',
-                        [
-                            'button' => $button,
-                        ]
-                    );
-                ?>
-                <?php if (get_field('footer_logo', 'options')) : $logo = get_field('footer_logo', 'options'); ?>
-                        <img src="<?php echo $logo['url']; ?>" alt="Hope Act Logo">
-                <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo-white.png')) : ?>
-                        <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-white.png" alt="Hope Act Logo" class="u-lg-block" />                <?php else : ?>
-                        <strong><?php echo bloginfo('title'); ?></strong>
-                <?php endif; ?>
+                <?php if($button['button']): ?>
+                    <?php  
+                                Load::atom(
+                                    'button/button',
+                                    [
+                                        'button' => $button['button'],
+                                    ]
+                                );
+                    ?>
+                    <?php if (get_field('footer_logo', 'options')) : $logo = get_field('footer_logo', 'options'); ?>
+                            <img src="<?php echo $logo['url']; ?>" alt="Hope Act Logo">
+                    <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo-white.png')) : ?>
+                            <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-white.png" alt="Hope Act Logo" class="u-lg-block" />                <?php else : ?>
+                            <strong><?php echo bloginfo('title'); ?></strong>
+                    <?php endif; ?>
+            <?php endif; ?>
             </div>
         </div>
     </section>

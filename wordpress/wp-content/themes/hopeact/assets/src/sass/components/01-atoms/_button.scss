@@ -56,7 +56,6 @@ $btnWhite: (
 	@include btnNormalize();
 	background-color: map.get($button, 'bgColor');
 	border-radius: 0;
-	box-shadow: inset 0 0 0 1px map.get($button, 'borderColor'); // inset border
 	color: map.get($button, 'textColor');
 	display: inline-flex;
 	font-family: $font-stack-secondary;
@@ -90,7 +89,6 @@ $btnWhite: (
 	&.disabled,
 	&.btn--disabled {
 		background-color: map.get($button, 'disabled');
-		box-shadow: inset 0 0 0 1px map.get($button, 'disabled');
 		color: map.get($button, 'disabledTextColor');
 		opacity: 1;
 		pointer-events: none;
@@ -105,7 +103,6 @@ $btnWhite: (
 @mixin btnColors($button: $btnDefault) {
 	background-color: map.get($button, 'bgColor');
 	border-bottom: solid map.get($button, 'borderColor'); 
-	box-shadow: inset 0 0 0 1px map.get($button, 'borderColor'); // inset border
 	color: map.get($button, 'textColor');
 	&::after{
 		display: none;
@@ -116,14 +113,12 @@ $btnWhite: (
 	&:active {
 		color: map.get($button, 'hoverTextColor');
 		background-color: map.get($button, 'hoverBgColor');
-		box-shadow: inset 0 0 0 1px map.get($button, 'hoverBorderColor'); // inset border
 		svg {
 			filter: invert(32%) sepia(45%) saturate(7500%) hue-rotate(211deg) brightness(100%) contrast(97%);
 		}
 	}
 	&:active {
 		background-color: map.get($button, 'activeBgColor');
-		box-shadow: inset 0 0 0 1px map.get($button, 'activeBorderColor'); // inset border
 		svg {
 			filter: invert(32%) sepia(45%) saturate(7500%) hue-rotate(211deg) brightness(100%) contrast(97%);
 		}
@@ -135,7 +130,6 @@ $btnWhite: (
 		&:active {
 			color: map.get($button, 'hoverTextColor');
 			background-color: map.get($button, 'hoverBgColor');
-			box-shadow: inset 0 0 0 1px map.get($button, 'hoverBorderColor'); // inset border
 			svg {
 				filter: invert(32%) sepia(45%) saturate(7500%) hue-rotate(211deg) brightness(100%) contrast(97%);
 			}
@@ -266,10 +260,8 @@ $btnSolidWhite: (
 	.u-bgColorPurple &,
 	.u-bgColorYellow &{
 		background-color: swatch("Neutral");
-		box-shadow: inset 0 0 0 1px swatch("Neutral");
 		&:active{
 			background-color: swatch("White");
-			box-shadow: inset 0 0 0 1px swatch("White");
 			color: swatch("Neutral");
 		}
 	}
@@ -325,14 +317,12 @@ $btnOutlineWhite: (
 	
 	.u-bgColorPurple &,
 	.u-bgColorYellow &{
-		box-shadow: inset 0 0 0 1px swatch("Neutral");
 		&:hover,
 		&:focus{
 			background-color: swatch("Neutral");
 		}
 		&:active{
 			background-color: swatch("White");
-			box-shadow: inset 0 0 0 1px swatch("White");
 			// color: swatch("Neutral");
 		}
 	}
@@ -355,7 +345,6 @@ $btnOutlineWhite: (
 	&.btn--disabled {
 		background-color: map.get($btnOutline, 'bgColor');
 		border: none;
-		box-shadow: inset 0 0 0 1px map.get($btnOutline, 'disabled');
 		color: map.get($btnOutline, 'disabled');
 		opacity: 1;
 		pointer-events: none;

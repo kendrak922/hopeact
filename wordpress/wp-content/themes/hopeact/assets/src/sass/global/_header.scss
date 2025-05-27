@@ -1,16 +1,17 @@
 @use '../abstracts' as *;
 @use "sass:map";
-
+@use "sass:meta";
 /********************************
 	HEADER
 ********************************/
 
 .header {
-    font-size: rem(25);
+    font-size: rem(16);
     height: calc(map.get($headerHeight, 'sm'));
     position: relative;
     transition: height 0.2s ease-in-out;
     z-index: 99998;
+
     @include create-mq($lg-width) {
         height: calc(map.get($headerHeight, 'lg'));
     }
@@ -20,6 +21,7 @@
         position: fixed;
         width: 100%;
         z-index: 99999;
+
         &.animate {
             transition: top 0.6s ease-in-out;
         }
@@ -28,15 +30,18 @@
     // logo
     &__logo {
         height: auto;
+
         img {
-            height: 2.5rem;
+            height: 1.5rem;
             width: auto;
             object-fit: contain;
+
             @include create-mq($lg-width) {
-                height: 5rem;
+                height: 2.5rem;
                 transition: height ease-in-out $t-default;
+
                 body.scrolled & {
-                    height: 2.5rem;
+                    height: 1.5rem;
                 }
             }
         }
@@ -55,6 +60,7 @@
         pointer-events: none;
         transition: $transition-default;
         backdrop-filter: blur(5px);
+
         .active--mobileMenu & {
             opacity: 1;
             pointer-events: all;
@@ -63,12 +69,14 @@
 
     // header bar molecule
     &-bar {
+        background-color: swatch('White');
         &--main {
             .header-bar__wrapper {
                 height: map.get($headerHeight, 'sm');
                 @include create-mq($lg-width) {
                     height: map.get($headerHeight, 'lg');
                     transition: height ease-in-out $t-default;
+
                     body.scrolled & {
                         height: calc(map.get($headerHeight, 'scroll'));
                         overflow: hidden;
@@ -78,7 +86,7 @@
         }
 
         &--utility {
-            .menu > li {
+            .menu>li {
                 a {
                     padding: 0;
                 }
@@ -94,6 +102,7 @@
 
                 &--balance {
                     transition: $transition-default;
+
                     @include create-mq($lg-width) {
                         padding-top: 1.75rem;
                     }
@@ -101,10 +110,5 @@
             }
         }
     }
-
-    .btn--primary {
-        width: 200px;
-        padding: 20px 16px;
-        text-align: center;
-    }
 }
+

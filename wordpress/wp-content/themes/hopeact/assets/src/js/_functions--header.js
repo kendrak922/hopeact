@@ -43,12 +43,37 @@ class Functions__Header {
    * $this.event_listeners();
    */
   event_listeners() {
+
+
+    const toggleBtn = document.querySelector('.menu-toggle');
+
+    if(toggleBtn){
+      toggleBtn.addEventListener('click', (e) => {
+        if(toggleBtn.classList.contains('menu-open')){
+          toggleBtn.classList.remove('menu-open');
+          toggleBtn.ariaExpanded = false;
+          fn__ada.setFocusContext(false);
+          document.body.classList.remove(global.actives.mobile_menu)
+        }else {
+          toggleBtn.classList.add('menu-open');
+          document.body.classList.add(global.actives.mobile_menu)
+          toggleBtn.ariaExpanded = true;
+          fn__ada.setFocusContext(true);
+        }
+      })
+    }
+
+
+
     const close_triggers = document.querySelectorAll('.menu-trigger--close')
     const open_triggers = document.querySelectorAll('.menu-trigger--open')
     const subnav_triggers = document.querySelectorAll('[data-btn="toggle"]')
     const header__nav = document.querySelector('.menu-wrapper--main')
     const header__el = document.querySelector('.header')
     const back_triggers = document.querySelectorAll('.sub-menu__back')
+
+    
+
 
     // Mobile menu - open
     open_triggers.forEach((trigger) => {
@@ -59,14 +84,14 @@ class Functions__Header {
           document.body.classList.remove(global.actives.mobile_menu)
           trigger.ariaExpanded = 'false'
           header__nav.ariaHidden = 'true'
-          fn__ada.setFocusContext(false)
+          // fn__ada.setFocusContext(false)
         } else {
           // OPEN MENU
           trigger.classList.add('is-active')
           document.body.classList.add(global.actives.mobile_menu)
           trigger.ariaExpanded = 'true'
           header__nav.ariaHidden = 'false'
-          fn__ada.setFocusContext(header__el)
+          // fn__ada.setFocusContext(header__el)
         }
 
         // Toggle scroll lock

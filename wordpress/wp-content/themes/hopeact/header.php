@@ -28,13 +28,13 @@ if (strpos($domain, $environment_map['local']) !== false) {
 
 
 $header_button_link = get_field('header_button_link', 'options');
-
-if ($header_button_link) {
+$header_button = '';
+if (!empty($header_button_link)) {
     $header_button = array(
-		'button_style' => 'solid',
-		'button_link' => $header_button_link,
-		'button_type' => 'link',
-	);
+    'button_style' => 'solid',
+    'button_link' => $header_button_link,
+    'button_type' => 'link',
+    );
 }
 
 ?>
@@ -49,10 +49,10 @@ if ($header_button_link) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="apple-touch-icon" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="512x512"  href="<?php echo $themeGlobals['theme_url']; ?>/favicons/android-chrome-512x512.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $themeGlobals['theme_url']; ?>/favicons/android-chrome-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/favicon-16x16.png">
-        <link rel="manifest" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $themeGlobals['theme_url']; ?>/favicons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo $themeGlobals['theme_url']; ?>/favicons/site.webmanifest">
     <title><?php wp_title(''); ?></title>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -66,7 +66,7 @@ if ($header_button_link) {
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?> data-environment="<?php echo $environment; ?>">
+<body <?php body_class(); ?> >
     <div class="wrapper">
 
         <?php /*****
@@ -81,36 +81,36 @@ if ($header_button_link) {
                        * START: HEADER BAR 
                        ******/ ?>
 
-                <div data-molecule="header-bar" class="header-bar header-bar--main u-bgColorWhite">
+                <div data-molecule="header-bar" class="header-bar header-bar--main">
                     <div class="container container--ultra-wide">
-                        <div class="header-bar__wrapper grid grid--justify-between grid--no-wrap grid--align-center">
+                        <div class="header-bar__wrapper grid grid--justify-between grid--no-wrap grid--align-end">
 
                             <div class="header-bar__item">
                                 <?php /*****
                                        * SITE LOGO 
-                                       ******/ ?>
+                                       ******/ 
+                                    $logo = get_field('global_imagery', 'options')['header_logo'];
+                                ?>
                                 <a href="<?php bloginfo('url'); ?>" class="logo header__logo" aria-label="Link to homepage">
-                                    <?php if (get_field('header_logo', 'options')) : $logo = get_field('header_logo', 'options'); ?>
-                                        <img src="<?php echo $logo['url']; ?>" alt="Hope Act">
-                                    <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo.png')) : ?>
-                                        <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo.png" alt="Hope Act" class="u-hidden u-lg-block" />
-                                        <img src=" <?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-sm.png" alt="Hope Act" class="u-lg-hidden" />
-                                    <?php else : ?>
+                                    <?php if ($logo) : ?>
+                                        <img src="<?php echo $logo['url']; ?>" alt="Hopeact">
+
+                                    <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo-header.png')) : ?>
+                                        <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-header.png" alt="Banshee Studio" class="u-hidden u-lg-block" />                                    <?php else : ?>
                                         <strong><?php echo bloginfo('title'); ?></strong>
-                                    <?php endif; ?>
+                                       <?php endif; ?>
                                 </a>
                             </div>
 
-                            <div class=" header-bar__item" style="flex: 1;">
+                            <div class=" header-bar__item">
 
                                 <span class="u-lg-hidden u-marginLeft6gu">
-                                    <button class="header__menu-trigger menu-trigger--open main-open hamburger hamburger--spin" type="button" aria-label="expand main navigation menu" aria-expanded="false" aria-controls="menu_container">
-                                        <span class="hamburger-open">MENU</span>
-                                        <span class="hamburger-close">CLOSE</span>
-                                        <span class="hamburger-box">
-                                            <span class="hamburger-inner"></span>
-                                        </span>
-                                    </button>
+                                    <div id="menu-toggle" class="menu-toggle" aria-label="Open the Menu" aria-expanded="false" tabindex="0">
+                                        <span class="menu-toggle__icon"></span>
+                                        <span class="menu-toggle__icon"></span>
+                                        <span class="menu-toggle__icon"></span>
+                                        <div class="menu-toggle__label">Menu</div>
+                                    </div>
                                 </span>
 
                                 <div id="menu_container" class="menu-wrapper menu-wrapper--main" aria-hidden="false">
@@ -127,9 +127,13 @@ if ($header_button_link) {
                                         ];
                                         wp_nav_menu($header_nav); ?>
                                     </nav>
+                                    <?php  if($header_button) : ?>
+                                </div>
+                            <?php endif;?>
                                 </div>
                             </div>
-							<div class=" header-bar__item">
+                            <?php  if($header_button) : ?>
+                                <div class=" header-bar__item">
                                     <?php Load::atom(
                                         'button/button',
                                         [
@@ -137,6 +141,7 @@ if ($header_button_link) {
                                         ]
                                     ); ?>
                                 </div>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ For info on the site theme, see the [Theme README](wordpress/wp-content/themes/h
 
 ## General Information
 
-- Production Url: [PRODUCTION](https://hopeactmn.org)
+- Production Url:  [PRODUCTION URL](https://hopeactmn.org)
 - Platform/CMS: WordPress: [LOCAL LINK](hopeact.lndo)
 - Code stored on github: [GITHUB LINK](https://github.com/kendrak922/hopeact)
 
@@ -37,6 +37,3 @@ For info on the site theme, see the [Theme README](wordpress/wp-content/themes/h
 
 ### Plugins
 - ACF
-
-todo---
-figure out columns and sections

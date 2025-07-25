@@ -386,7 +386,7 @@ class Functions__General {
       if (isChildOfNav) {
         link.insertAdjacentHTML(
           'beforeend',
-          `<svg role="presentation" class="icon__new-tab" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              `<svg role="presentation" class="icon__new-tab sr-only" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6 6H14V14" stroke="#1A1818" stroke-width="1.5"></path>
           <path d="M14 6L6 14" stroke="#1A1818" stroke-width="1.5"></path>
           <rect x="0.25" y="0.25" width="19.5" height="19.5" rx="1.75" stroke="#1A1818" stroke-width="0.5"></rect>

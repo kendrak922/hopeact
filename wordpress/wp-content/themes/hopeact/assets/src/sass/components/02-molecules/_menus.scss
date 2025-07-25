@@ -110,11 +110,6 @@ $menuHeight: (
             text-underline-offset: .5rem;
             text-decoration-color: swatch('Orange');
         }
-          & > .sub-menu--toggle-contain{
-            a {
-                text-decoration: underline;
-            }
-          }
         }
         & > a,
         & > .sub-menu--toggle-contain{
@@ -168,25 +163,13 @@ $menuHeight: (
     }
 
     .sub-menu{
-      border-top: .5px swatch('Black') solid;
       display: none;
       font-size: 1rem;
       position: relative;
       width:100%;
       z-index: 10;
-      .sub-menu__head{
-        border-bottom: 1px solid swatch("Gray");
-        padding: 1rem $container-padding-mobile;
-        text-align: center;
-        position: relative;
-        font-size: 1.125rem;
-        button{
-          position: absolute;
-          left: $container-padding-mobile;
-          top: .675rem;
-          height: 2rem;
-          width: 2rem;
-        }
+      .menu-item a {
+        text-decoration: none;
       }
       @include create-mq($lg-width) {
         display: none;
@@ -222,9 +205,10 @@ $menuHeight: (
     & > li > .sub-menu{
       display: block;
       @include create-mq($lg-width) {
-        display: none !important; // remove to allow desktop dropdown
+        display: none;  // remove to allow desktop dropdown
         position: absolute;
-        border-bottom: 1px #ddd solid;
+        border-bottom: 1px swatch('Black') solid;
+        background-color: swatch('White');
         box-shadow: 0px 0.25rem 1.5rem rgba(0, 0, 0, 0.05);
         // border-radius: .5rem;
         overflow: hidden;
@@ -238,16 +222,17 @@ $menuHeight: (
       // font-size: 1.5rem;
       @include create-mq($lg-width) {
         gap:.5rem;
+        font-size: 1rem;
       }
       @include create-mq($xl-width) {
-        gap:8rem;
-        font-size: 1.5rem;
+        gap:4rem;
+        font-size: 1rem;
       }
       & > .menu-item{
         & > a,
         & > .sub-menu--toggle-contain{
           @include create-mq($lg-width) {
-            font-size: 1.5rem;
+            font-size: 1rem;
             padding: 0.75rem 1.5rem;
             button{
               display: none !important; // remove to allow desktop dropdown

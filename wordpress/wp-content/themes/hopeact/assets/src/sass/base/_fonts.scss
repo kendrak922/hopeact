@@ -44,25 +44,25 @@
 
 /***** HEADING MIXINS *****/
 @mixin h1() {
-    font-size: 4.75rem!important; //76
+    font-size: 3.75rem!important; //60
     line-height: 120%;
     @include create-mq($md-width) {
-        font-size: 4.5rem!important; //72
+        font-size: 4.25rem!important; //68
         line-height: 120%;
     }
 }
 
 @mixin h2() {
-    font-size: 3rem !important; //48
+    font-size: 2.25rem !important;
     line-height: 120%;
     @include create-mq($md-width) {
-        font-size: 3.75rem!important; //60
+        font-size: 2.625rem!important; //42
         line-height: 120%;
     }
 }
 
 @mixin h3() {
-    font-size: 2.4375rem!important; //39
+    font-size: 1.75rem!important; 
     line-height: 130%;
 }
 
@@ -331,11 +331,11 @@ p{
     line-height: 2.25;
 }
 .text-xl {
-    font-size: 1.5rem; //24
+    font-size: 1.625rem; //26
     line-height: 2.25;
 }
 .text-xxl {
-    font-size: 1.5rem; //32
+    font-size: 2rem; //32
     line-height: 2.25;
 }
 b,

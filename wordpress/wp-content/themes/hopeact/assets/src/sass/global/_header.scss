@@ -37,7 +37,7 @@
             object-fit: contain;
 
             @include create-mq($lg-width) {
-                height: 2.5rem;
+                height: 4.5rem;
                 transition: height ease-in-out $t-default;
 
                 body.scrolled & {

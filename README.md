@@ -5,10 +5,9 @@ For info on the site theme, see the [Theme README](wordpress/wp-content/themes/h
 
 ## General Information
 
-- Production Url:
+- Production Url: [PRODUCTION](https://hopeactmn.org)
 - Platform/CMS: WordPress: [LOCAL LINK](hopeact.lndo)
 - Code stored on github: [GITHUB LINK](https://github.com/kendrak922/hopeact)
-- figma Designs:
 
 
 ## Getting Started
@@ -16,7 +15,6 @@ For info on the site theme, see the [Theme README](wordpress/wp-content/themes/h
 - clone Release/Develop branch
 - create env.php file in the /wordpress directory
 - create wp-config.php file in the /wordpress directory
-  - example of env.php and wp-config.php are in bitwarden
 - Run npm install in the theme directory
 - Run composer install in the theme directory
 - Run gulp in the theme directory

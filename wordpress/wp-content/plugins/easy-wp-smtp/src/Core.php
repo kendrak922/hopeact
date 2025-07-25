@@ -435,7 +435,7 @@ class Core {
 	}
 
 	/**
-	 * Display various notifications to a user
+	 * Display various notifications to a user.
 	 *
 	 * @since 2.0.0
 	 */
@@ -451,7 +451,7 @@ class Core {
 		if ( easy_wp_smtp()->is_blocked() ) {
 			?>
 
-			<div class="notice <?php echo esc_attr( WP::ADMIN_NOTICE_ERROR ); ?>">
+			<div class="notice easy-wp-smtp-notice <?php echo esc_attr( WP::ADMIN_NOTICE_ERROR ); ?>">
 				<p>
 					<?php
 					$notices[] = sprintf(
@@ -517,7 +517,7 @@ class Core {
 			if ( ! empty( $notice ) ) {
 				?>
 
-				<div class="notice <?php echo esc_attr( WP::ADMIN_NOTICE_ERROR ); ?>">
+				<div class="notice easy-wp-smtp-notice <?php echo esc_attr( WP::ADMIN_NOTICE_ERROR ); ?>">
 					<p>
 						<?php
 						echo wp_kses(
@@ -1297,7 +1297,7 @@ class Core {
 				);
 
 			printf(
-				'<div class="notice %1$s"><p>%2$s</p></div>',
+				'<div class="notice easy-wp-smtp-notice %1$s"><p>%2$s</p></div>',
 				esc_attr( WP::ADMIN_NOTICE_ERROR ),
 				wp_kses( $message, [ 'br' => [] ] )
 			);

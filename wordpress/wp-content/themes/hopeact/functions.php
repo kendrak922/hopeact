@@ -355,51 +355,51 @@ if (function_exists('acf_register_block_type')) {
     GUTENBERG BLOCKS: LIMIT ALLOWED BLOCKS
  *************************************************************/
 // Allow Only Custom Blocks Listed Below
-function my_allowed_block_types($allowed_block_types_all, $post)
-{
-    $allowed = [
-        'core/block', // add this for reusable blocks
-        'core/footnotes',
-        'core/group',
-        'core/columns',
-        'core/heading',
-        'core/list-item',
-        'core/list',
-        'core/media-text',
-        'core/paragraph',
-        'core/post-author-name',
-        'core/post-date',
-        'core/post-excerpt',
-        'core/post-featured-image',
-        'core/post-title',
-        'core/quote',
-        'yoast-seo/breadcrumbs',
-        'formidable/simple-form',
-    ];
+// function my_allowed_block_types($allowed_block_types_all, $post)
+// {
+//     $allowed = [
+//         'core/block', // add this for reusable blocks
+//         'core/footnotes',
+//         'core/group',
+//         'core/columns',
+//         'core/heading',
+//         'core/list-item',
+//         'core/list',
+//         'core/media-text',
+//         'core/paragraph',
+//         'core/post-author-name',
+//         'core/post-date',
+//         'core/post-excerpt',
+//         'core/post-featured-image',
+//         'core/post-title',
+//         'core/quote',
+//         'yoast-seo/breadcrumbs',
+//         'formidable/simple-form',
+//     ];
 
-    $post_type = get_post_type();
-    switch ($post_type):
+//     $post_type = get_post_type();
+//     switch ($post_type):
 
-        case 'post':
-            // Post Type specific blocks - example
-            // default to built in wysiwyg - allow ACF blocks too
-            $allowed[] = 'core/freeform';
-            foreach (acf_get_block_types() as $key => $block) {
-               $allowed[] = $block['name'];
-            }
-            break;
+//         case 'post':
+//             // Post Type specific blocks - example
+//             // default to built in wysiwyg - allow ACF blocks too
+//             $allowed[] = 'core/freeform';
+//             foreach (acf_get_block_types() as $key => $block) {
+//                $allowed[] = $block['name'];
+//             }
+//             break;
 
-        // Default blocks allowed
-        default:
-            foreach (acf_get_block_types() as $key => $block) {
-                $allowed[] = $block['name'];
-            }
-            break;
-    endswitch;
+//         // Default blocks allowed
+//         default:
+//             foreach (acf_get_block_types() as $key => $block) {
+//                 $allowed[] = $block['name'];
+//             }
+//             break;
+//     endswitch;
 
-    return $allowed;
-}
-add_filter('allowed_block_types_all', 'my_allowed_block_types', 10, 2);
+//     return $allowed;
+// }
+// add_filter('allowed_block_types_all', 'my_allowed_block_types', 10, 2);
 
 
 /*************************************************************

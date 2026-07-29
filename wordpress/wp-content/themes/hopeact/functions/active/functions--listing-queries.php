@@ -397,7 +397,7 @@ function storyFromID($id){
         'title' => get_the_title($id),
         'imageID' =>  get_post_thumbnail_id($id),
         'url' => get_the_permalink($id),
-        'description' => get_the_excerpt($id),
+        'description' => get_field('description', $id),
         'accent_image' => get_field('accent_image', $id)
     );
 }

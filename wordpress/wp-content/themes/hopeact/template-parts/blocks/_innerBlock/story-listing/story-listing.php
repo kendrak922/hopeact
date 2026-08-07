@@ -59,6 +59,21 @@ $storylisting[] = storiesFromQuery()
                             <?php echo $story['description'];?>
                         </div>
                     <?php endif;?>
+                    <?php
+                    Load::atom(
+                        'button/button',
+                        [
+                            'button' => [
+                                'button_type' => 'link',
+                                'button_style' => 'arrow',
+                                'button_link' => [
+                                    'title' => 'Read more',
+                                    'url' => $story['url'],
+                                ],
+                                'classes' => 'u-marginTop6gu',
+                            ],
+                        ]
+                    );?>
                     <?php if($story['accent_image']) :?>
                         <div class="accent-image">
                             <?php echo wp_get_attachment_image($story['accent_image']['id'],'medium', '', array('class' => 'lazyload') ); ?>
